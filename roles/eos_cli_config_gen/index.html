@@ -802,6 +802,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#router-isis-configuration" class="md-nav__link">
+    Router ISIS Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#queue-monitor-streaming" class="md-nav__link">
     Queue Monitor Streaming
   </a>
@@ -1543,6 +1550,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#router-isis-configuration" class="md-nav__link">
+    Router ISIS Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#queue-monitor-streaming" class="md-nav__link">
     Queue Monitor Streaming
   </a>
@@ -1658,7 +1672,7 @@
 <li><a href="#router-l2-vpn">Router L2 VPN</a></li>
 <li><a href="#sflow">Sflow</a></li>
 <li><a href="#redundancy">Redundancy</a></li>
-<li><a href="#snmp-settings">Snmp Settings</a></li>
+<li><a href="#snmp-settings">SNMP Settings</a></li>
 <li><a href="#spanning-tree">Spanning Tree</a></li>
 <li><a href="#platform">Platform</a></li>
 <li><a href="#tacacs-servers">Tacacs+ Servers</a></li>
@@ -1699,6 +1713,7 @@
 <li><a href="#routing---multicast">Routing - Multicast</a></li>
 <li><a href="#router-ospf-configuration">Router OSPF Configuration</a></li>
 <li><a href="#routing-pim-sparse-mode">Routing PIM Sparse Mode</a></li>
+<li><a href="#router-isis-configuration">Router ISIS Configuration</a></li>
 <li><a href="#queue-monitor-streaming">Queue Monitor Streaming</a></li>
 <li><a href="#ip-tacacs-source-interfaces">IP TACACS+ Source Interfaces</a></li>
 <li><a href="#vm-tracer-sessions">VM Tracer Sessions</a></li>
@@ -2165,6 +2180,10 @@
     <span class="nt">pim</span><span class="p">:</span>
       <span class="nt">ipv4</span><span class="p">:</span>
         <span class="nt">sparse_mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+    <span class="nt">isis_enable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; ISIS Instance &gt;</span>
+    <span class="nt">isis_passive</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; boolean &gt;</span>
+    <span class="nt">isis_metric</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; integer &gt;</span>
+    <span class="nt">isis_network_point_to_point</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; boolean &gt;</span>
 
 <span class="c1"># Switched Interfaces</span>
   <span class="nt">&lt;Ethernet_interface_2 &gt;</span><span class="p">:</span>
@@ -2201,6 +2220,10 @@
   <span class="nt">&lt; Loopback_interface_2 &gt;</span><span class="p">:</span>
     <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
     <span class="nt">ip_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+    <span class="nt">isis_enable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; ISIS Instance &gt;</span>
+    <span class="nt">isis_passive</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; boolean &gt;</span>
+    <span class="nt">isis_metric</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; integer &gt;</span>
+    <span class="nt">isis_network_point_to_point</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; boolean &gt;</span>
 </code></pre></div>
 
 <h3 id="management-interfaces">Management Interfaces<a class="headerlink" href="#management-interfaces" title="Permanent link">#</a></h3>
@@ -2260,6 +2283,11 @@
         <span class="nt">sparse_mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
         <span class="nt">local_interface</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; local_interface_name &gt;</span>
     <span class="nt">ipv6_virtual_router_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv6_address &gt;</span>
+    <span class="nt">isis_enable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; ISIS Instance &gt;</span>
+    <span class="nt">isis_passive</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; boolean &gt;</span>
+    <span class="nt">isis_metric</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; integer &gt;</span>
+    <span class="nt">isis_network_point_to_point</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; boolean &gt;</span>
+    <span class="nt">mtu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; mtu &gt;</span>
   <span class="nt">&lt; Vlan_id_2 &gt;</span><span class="p">:</span>
     <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
     <span class="nt">ip_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
@@ -2699,6 +2727,18 @@
         <span class="nt">other_anycast_rp_addresses</span><span class="p">:</span>
           <span class="nt">&lt; ip_address_other_anycast_rp_1 &gt;</span><span class="p">:</span>
             <span class="nt">register_count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; register_count_nb &gt;</span>
+</code></pre></div>
+
+<h3 id="router-isis-configuration">Router ISIS Configuration<a class="headerlink" href="#router-isis-configuration" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">router_isis</span><span class="p">:</span>
+  <span class="nt">instance</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;ISIS Instance Name&gt;</span>
+  <span class="nt">net</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; CLNS Address to run ISIS | format 49.0001.0001.0000.0001.00 &gt;</span>
+  <span class="nt">router_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address &gt;</span>
+  <span class="nt">no_passive_interfaces</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; List no-passive-interface &gt;</span>
+  <span class="nt">is_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; level-1 | level-1-2 | level-2 &gt;</span>
+  <span class="nt">address_family</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; List of Address Families &gt;</span>
+  <span class="nt">isis_af_defaults</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">maximum-paths &lt; Integer 1-64 &gt;</span>
 </code></pre></div>
 
 <h3 id="queue-monitor-streaming">Queue Monitor Streaming<a class="headerlink" href="#queue-monitor-streaming" title="Permanent link">#</a></h3>
