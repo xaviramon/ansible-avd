@@ -459,6 +459,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#lldp" class="md-nav__link">
+    LLDP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#logging" class="md-nav__link">
     Logging
   </a>
@@ -1207,6 +1214,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#lldp" class="md-nav__link">
+    LLDP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#logging" class="md-nav__link">
     Logging
   </a>
@@ -1665,6 +1679,7 @@
 <li><a href="#queue-monitor-length">Queue Monitor Length</a></li>
 <li><a href="#service-routing-protocols-model">Service Routing Protocols Model</a></li>
 <li><a href="#logging">Logging</a></li>
+<li><a href="#lldp">LLDP</a></li>
 <li><a href="#domain-lookup">Domain Lookup</a></li>
 <li><a href="#name-servers">Name Servers</a></li>
 <li><a href="#dns-domain">DNS Domain</a></li>
@@ -1842,6 +1857,15 @@
 
 <h3 id="service-routing-protocols-model">Service Routing Protocols Model<a class="headerlink" href="#service-routing-protocols-model" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">service_routing_protocols_model</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; multi-agent | ribd &gt;</span>
+</code></pre></div>
+
+<h3 id="lldp">LLDP<a class="headerlink" href="#lldp" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">lldp</span><span class="p">:</span>
+  <span class="nt">timer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; transmission_time &gt;</span>
+  <span class="nt">holdtime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; hold_time_period &gt;</span>
+  <span class="nt">management_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; all | ethernetN | loopbackN | managementN | port-channelN | vlanN &gt;</span>
+  <span class="nt">vrf</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; vrf_name &gt;</span>
+  <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
 </code></pre></div>
 
 <h3 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">#</a></h3>
@@ -2532,6 +2556,8 @@
   <span class="nt">peer_groups</span><span class="p">:</span>
     <span class="nt">&lt; peer_group_name_1&gt;</span><span class="p">:</span>
       <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; ipv4 | evpn &gt;</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">description</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">string</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
+      <span class="nt">shutdown</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
       <span class="nt">peer_filter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; peer_filter &gt;</span>
       <span class="nt">next_hop_unchanged</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
       <span class="nt">update_source</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; interface &gt;</span>
@@ -2541,6 +2567,8 @@
       <span class="nt">password</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">encrypted_password</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
       <span class="nt">send_community</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
       <span class="nt">maximum_routes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; integer &gt;</span>
+      <span class="nt">weight</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; weight_value &gt;</span>
+      <span class="nt">timers</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; keepalive_hold_timer_values &gt;</span>
     <span class="nt">&lt; peer_group_name_2 &gt;</span><span class="p">:</span>
       <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; ipv4 | evpn &gt;</span>
       <span class="nt">bgp_listen_range_prefix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IP prefix range &gt;</span>
@@ -2553,8 +2581,12 @@
       <span class="nt">remote_as</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; bgp_as &gt;</span>
       <span class="nt">description</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">description</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">string</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
       <span class="nt">shutdown</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+      <span class="nt">update_source</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; interface &gt;</span>
+      <span class="nt">weight</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; weight_value &gt;</span>
+      <span class="nt">timers</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; keepalive_hold_timer_values &gt;</span>
     <span class="nt">&lt; IPv4_address_2 &gt;</span><span class="p">:</span>
       <span class="nt">remote_as</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; bgp_as &gt;</span>
+      <span class="nt">next_hop_self</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
       <span class="nt">password</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">encrypted_password</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
     <span class="nt">&lt; IPv6_address_1 &gt;</span><span class="p">:</span>
       <span class="nt">remote_as</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; bgp_as &gt;</span>
@@ -2619,6 +2651,9 @@
       <span class="nt">&lt; peer_group_name &gt;</span><span class="p">:</span>
         <span class="nt">activate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
   <span class="nt">address_family_ipv4</span><span class="p">:</span>
+    <span class="nt">networks</span><span class="p">:</span>
+      <span class="nt">&lt; prefix_ipv4 &gt;</span><span class="p">:</span>
+        <span class="nt">route_map</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; route_map_name &gt;</span>
     <span class="nt">peer_groups</span><span class="p">:</span>
       <span class="nt">&lt; peer_group_name &gt;</span><span class="p">:</span>
         <span class="nt">route_map_in</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; route_map_name &gt;</span>
@@ -2629,8 +2664,13 @@
     <span class="nt">neighbors</span><span class="p">:</span>
       <span class="nt">&lt; neighbor_ip_address&gt;</span><span class="p">:</span>
         <span class="nt">activate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+        <span class="nt">prefix_list_in</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; prefix_list_name &gt;</span>
+        <span class="nt">prefix_list_out</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; prefix_list_name &gt;</span>
       <span class="nt">&lt; neighbor_ip_address&gt;</span><span class="p">:</span>
         <span class="nt">activate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+        <span class="nt">default_originate</span><span class="p">:</span>
+          <span class="nt">always</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+          <span class="nt">route_map</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; route_map_name &gt;</span>
   <span class="nt">address_family_ipv4_multicast</span><span class="p">:</span>
     <span class="nt">peer_groups</span><span class="p">:</span>
       <span class="nt">&lt; peer_group_name &gt;</span><span class="p">:</span>
@@ -2721,6 +2761,13 @@
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; interface_1 &gt;</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; interface_2 &gt;</span>
       <span class="nt">max_lsa</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; integer &gt;</span>
+      <span class="nt">default_information_originate</span><span class="p">:</span>
+        <span class="nt">always</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+      <span class="nt">redistribute</span><span class="p">:</span>
+        <span class="nt">static</span><span class="p">:</span>
+          <span class="nt">route_map</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; route_map_name &gt;</span>
+        <span class="nt">connected</span><span class="p">:</span>
+          <span class="nt">route_map</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; route_map_name &gt;</span>
 </code></pre></div>
 
 <h3 id="routing-pim-sparse-mode">Routing PIM Sparse Mode<a class="headerlink" href="#routing-pim-sparse-mode" title="Permanent link">#</a></h3>
