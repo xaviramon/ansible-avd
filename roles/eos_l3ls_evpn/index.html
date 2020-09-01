@@ -1902,6 +1902,10 @@ The variables should be applied to all devices in the fabric.</p>
     <span class="c1"># Interface vlans | required</span>
     <span class="nt">vlans</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; vlans as string &gt;</span>
 
+    <span class="c1"># Spanning Tree</span>
+    <span class="nt">spanning_tree_portfast</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; edge | network &gt;</span>
+    <span class="nt">spanning_tree_bpdufilter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+
     <span class="c1"># Flow control | Optional</span>
     <span class="nt">flowcontrol</span><span class="p">:</span>
       <span class="nt">received</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; received | send | on &gt;</span>
@@ -1981,6 +1985,7 @@ The variables should be applied to all devices in the fabric.</p>
   <span class="nt">VM_Servers</span><span class="p">:</span>
     <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">trunk</span>
     <span class="nt">vlans</span><span class="p">:</span> <span class="s">&quot;110-111,120-121,130-131&quot;</span>
+    <span class="nt">spanning_tree_portfast</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">edge</span>
 
   <span class="nt">MGMT</span><span class="p">:</span>
     <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">access</span>
