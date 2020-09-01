@@ -446,6 +446,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#evpn-aa-esi-dual-attached-server-scenario" class="md-nav__link">
+    EVPN A/A ESI dual-attached server scenario
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -833,6 +840,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#evpn-aa-esi-dual-attached-server-scenario" class="md-nav__link">
+    EVPN A/A ESI dual-attached server scenario
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -917,6 +931,7 @@
 <li><a href="#server-edge-port-connectivity">Server Edge Port Connectivity</a></li>
 <li><a href="#single-attached-server-scenario">Single attached server scenario</a></li>
 <li><a href="#mlag-dual-attached-server-scenario">MLAG dual-attached server scenario</a></li>
+<li><a href="#evpn-aa-esi-dual-attached-server-scenario">EVPN A/A ESI dual-attached server scenario</a></li>
 <li><a href="#variable-to-attach-additional-configlets">Variable to attach additional configlets</a></li>
 <li><a href="#event-handlers">Event Handlers</a></li>
 <li><a href="#platform-specific-settings">Platform Specific settings</a></li>
@@ -1977,8 +1992,15 @@ The variables should be applied to all devices in the fabric.</p>
           <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; present | absent &gt;</span>
           <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; port_channel_description &gt;</span>
           <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; active | passive | on &gt;</span>
+          <span class="nt">short_esi</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 0000:0000:0000 &gt;</span>
 </code></pre></div>
 
+<p><code>short_esi</code> is an abreviated 3 octets value to encode <a href="https://tools.ietf.org/html/rfc7432#section-8.3.1">Ethernet Segment ID</a> and LACP ID. Transformation from abstraction to network values is managed by a <a href="../plugins/filter/esi_management.py">filter_plugin</a> and provides following result:</p>
+<ul>
+<li><em>EVPN ESI</em>: 000:000:0303:0202:0101</li>
+<li><em>LACP ID</em>: 0303.0202.0101</li>
+<li><em>Route Target</em>: 03:03:02:02:01:01</li>
+</ul>
 <p><strong>Example:</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nt">port_profiles</span><span class="p">:</span>
 
@@ -2068,6 +2090,34 @@ The variables should be applied to all devices in the fabric.</p>
           <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">active</span>
 </code></pre></div>
 
+<h4 id="evpn-aa-esi-dual-attached-server-scenario">EVPN A/A ESI dual-attached server scenario<a class="headerlink" href="#evpn-aa-esi-dual-attached-server-scenario" title="Permanent link">#</a></h4>
+<p>MLAG dual-homed connection:</p>
+<ul>
+<li>From <code>E0</code> to <code>DC1-SVC3A</code> interface <code>Eth10</code></li>
+<li>From <code>E1</code> to <code>DC1-SVC4A</code> interface <code>Eth10</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nt">servers</span><span class="p">:</span>
+  <span class="nt">server01</span><span class="p">:</span>
+    <span class="nt">rack</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RackB</span>
+    <span class="nt">adapters</span><span class="p">:</span>
+
+      <span class="p p-Indicator">-</span> <span class="nt">server_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">E0</span><span class="p p-Indicator">,</span> <span class="nv">E1</span> <span class="p p-Indicator">]</span>
+        <span class="nt">switch_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet10</span><span class="p p-Indicator">,</span> <span class="nv">Ethernet10</span> <span class="p p-Indicator">]</span>
+        <span class="nt">switches</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">DC1-SVC3A</span><span class="p p-Indicator">,</span> <span class="nv">DC1-SVC4A</span> <span class="p p-Indicator">]</span>
+        <span class="nt">profile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">VM_Servers</span>
+        <span class="nt">port_channel</span><span class="p">:</span>
+          <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+          <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PortChanne1</span>
+          <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">active</span>
+          <span class="nt">short_esi</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0303:0202:0101</span>
+</code></pre></div>
+
+<p><code>short_esi</code> is an abreviated 3 octets value to encode <a href="https://tools.ietf.org/html/rfc7432#section-8.3.1">Ethernet Segment ID</a> and LACP ID. Transformation from abstraction to network values is managed by a <a href="../plugins/filter/esi_management.py">filter_plugin</a> and provides following result:</p>
+<ul>
+<li><em>EVPN ESI</em>: 000:000:0303:0202:0101</li>
+<li><em>LACP ID</em>: 0303.0202.0101</li>
+<li><em>Route Target</em>: 03:03:02:02:01:01</li>
+</ul>
 <h3 id="variable-to-attach-additional-configlets">Variable to attach additional configlets<a class="headerlink" href="#variable-to-attach-additional-configlets" title="Permanent link">#</a></h3>
 <p>Role <a href="../eos_config_deploy_cvp/#add-additional-configlets"><code>eos_config_deploy_cvp</code></a> provides an option to attach additional configlets to both devices or containers.</p>
 <p>This function allows users to quickly deployed a new feature with no JINJA2 implementation. These configlets <strong>must</strong> be managed on Cloudvision as current role does not upload additional containers.</p>
