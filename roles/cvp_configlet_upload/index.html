@@ -655,7 +655,7 @@
                 <h1 id="ansible-role-cvp_configlet_upload">Ansible Role: cvp_configlet_upload<a class="headerlink" href="#ansible-role-cvp_configlet_upload" title="Permanent link">#</a></h1>
 <p><strong>Table of Contents:</strong></p>
 <ul>
-<li><a href="#ansible-role-cvpconfigletupload">Ansible Role: cvp_configlet_upload</a></li>
+<li><a href="#ansible-role-cvp_configlet_upload">Ansible Role: cvp_configlet_upload</a></li>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#role-requirements">Role requirements</a></li>
 <li><a href="#role-inputs-and-outputs">Role Inputs and Outputs</a></li>
@@ -700,7 +700,7 @@
 <ul>
 <li><strong><code>configlet_directory</code></strong>: Folder where local configlets are stored. Default: <code>configlets</code>.</li>
 <li><strong><code>file_extension</code></strong>: File extension to look for configlet in their local folder. Default: <code>conf</code>.</li>
-<li><strong><code>configlets_cvp_prefix</code></strong>: Prefix to use for configlet on CV side. Default: <code>none</code>.</li>
+<li><strong><code>configlets_cvp_prefix</code></strong>: Prefix to use for configlet on CV side. Default: <em>Not set</em> and it is required.</li>
 </ul>
 <p><em>Example</em>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">tasks</span><span class="p">:</span>
