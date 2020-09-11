@@ -921,7 +921,7 @@
 <p><strong>eos_validate_state</strong> is role leveraged to validate operational states of Arista EOS devices.</p>
 <p><strong>eos_validate_state</strong> role:</p>
 <ul>
-<li>consumes structured EOS configuration file, the same input as the role <a href="ansible_collections/arista/avd/roles/eos_cli_config_gen">eos_cli_config_gen</a>. This input is considered the source of truth (the desired state).</li>
+<li>consumes structured EOS configuration file, the same input as the role <a href="../eos_cli_config_gen">eos_cli_config_gen</a>. This input is considered the source of truth (the desired state).</li>
 <li>It connects to EOS devices to collects operational states (actual state). So this role requires an access to the configured devices.</li>
 <li>Compares the actual states against the desired state.</li>
 <li>Generates CSV and Markdown reports of the results.</li>
