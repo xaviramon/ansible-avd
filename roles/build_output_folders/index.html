@@ -837,7 +837,9 @@
 <h3 id="role-variables">Role Variables<a class="headerlink" href="#role-variables" title="Permanent link">#</a></h3>
 <p>Role support following variables:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Root directory where to build output structure</span>
-<span class="nt">root_dir</span><span class="p">:</span> <span class="s">&#39;{{playbook_dir}}&#39;</span>
+<span class="c1"># All folder below will be created in this directory folder.</span>
+<span class="nt">root_dir</span><span class="p">:</span> <span class="s">&#39;{{inventory_dir}}&#39;</span>
+
 <span class="c1"># Main output directory</span>
 <span class="nt">output_dir_name</span><span class="p">:</span> <span class="s">&#39;intended&#39;</span>
 <span class="c1"># Output for structured YAML files:</span>
@@ -850,13 +852,15 @@
 <span class="nt">fabric_dir_name</span><span class="p">:</span> <span class="s">&#39;DC1_FABRIC&#39;</span>
 <span class="c1"># Device documentation</span>
 <span class="nt">devices_dir_name</span><span class="p">:</span> <span class="s">&#39;devices&#39;</span>
+<span class="c1"># EOS State Validation Directory name</span>
+<span class="nt">eos_validate_state_name</span><span class="p">:</span> <span class="s">&#39;reports&#39;</span>
 </code></pre></div>
 
 <p>Role will create following structure:</p>
 <div class="highlight"><pre><span></span><code>intended
 ├── configs
 └── structured_configs
-|
+<span class="p">|</span>
 documentation
 ├── DC1_FABRIC
 └── devices
