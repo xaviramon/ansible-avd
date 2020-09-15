@@ -371,8 +371,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../installation/development/" title="Configure development environment" class="md-nav__link">
-      Configure development environment
+    <a href="../installation/development/" title="Development tips & tricks" class="md-nav__link">
+      Development tips & tricks
     </a>
   </li>
 
@@ -856,10 +856,13 @@
                 
                 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">#</a></h2>
 <h3 id="install-tools">Install tools<a class="headerlink" href="#install-tools" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code>$ sh -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/aristanetworks/ansible-avd/devel/development/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install AVD environment</span>
+$ sh -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://get.avd.sh<span class="k">)</span><span class="s2">&quot;</span>
 
+<span class="c1"># Move to AVD directory</span>
 $ <span class="nb">cd</span> arista-ansible
 
+<span class="c1"># Spin up container for easy access</span>
 $ make dev-start
 </code></pre></div>
 
@@ -939,6 +942,13 @@ $ mkdir inventory
       import_role:
          name: arista.avd.eos_config_deploy_eapi
 </code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>For complete and detailed lab description, you can refer to this <a href="../how-to/first-project/">how-to</a> document.</li>
+</ul>
+</div>
                 
               
               

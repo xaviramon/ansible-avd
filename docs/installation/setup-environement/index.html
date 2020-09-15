@@ -306,6 +306,46 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#avd-environment-commands" class="md-nav__link">
+    AVD environment commands
+  </a>
+  
+    <nav class="md-nav" aria-label="AVD environment commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands-for-docker-compose" class="md-nav__link">
+    Commands for docker-compose
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commands-for-docker-only" class="md-nav__link">
+    Commands for docker only
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands for docker only">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-for-image-management" class="md-nav__link">
+    Command for image management
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#run-avd-shell" class="md-nav__link">
     Run AVD shell
   </a>
@@ -373,8 +413,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../development/" title="Configure development environment" class="md-nav__link">
-      Configure development environment
+    <a href="../development/" title="Development tips & tricks" class="md-nav__link">
+      Development tips & tricks
     </a>
   </li>
 
@@ -804,6 +844,46 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#avd-environment-commands" class="md-nav__link">
+    AVD environment commands
+  </a>
+  
+    <nav class="md-nav" aria-label="AVD environment commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands-for-docker-compose" class="md-nav__link">
+    Commands for docker-compose
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commands-for-docker-only" class="md-nav__link">
+    Commands for docker only
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands for docker only">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-for-image-management" class="md-nav__link">
+    Command for image management
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#run-avd-shell" class="md-nav__link">
     Run AVD shell
   </a>
@@ -882,7 +962,7 @@ $ git clone https://github.com/arista-netdevops-community/ansible-avd-cloudvisio
 
 <span class="c1"># Copy Makefile at the root position</span>
 $ cp ansible-avd/development/Makefile ./
-$ make run
+$ make shell
 </code></pre></div>
 
 <p>Or you can use a one-liner script available in ansible-avd repository to create this structure for you. This script does following actions:</p>
@@ -900,6 +980,36 @@ $ make run
 <p>In this approach Docker container will be leveraged to provides all the AVD requirements and playbooks and collection will be shared from your localhost to the container.</p>
 <p>This approach make the run process easier as all libraries are pre-configured in container and you can continue to use your preferred text editor to edit and build your content.</p>
 <p>Considering you have deployed <a href="https://github.com/aristanetworks/ansible-avd/blob/devel/development/Makefile">Makefile</a> described in previous section, all the outputs will provide native docker command and the Make command.</p>
+<h4 id="avd-environment-commands">AVD environment commands<a class="headerlink" href="#avd-environment-commands" title="Permanent link">#</a></h4>
+<p>When using installation script to create your own AVD environment, a <a href="https://github.com/aristanetworks/ansible-avd/blob/devel/development/Makefile"><code>Makefile</code></a> is deployed under <code>./ansible-arista</code> to automate some common commands:</p>
+<div class="highlight"><pre><span></span><code>$ make &lt;your command&gt;
+</code></pre></div>
+
+<h5 id="commands-for-docker-compose">Commands for docker-compose<a class="headerlink" href="#commands-for-docker-compose" title="Permanent link">#</a></h5>
+<ul>
+<li><code>dev-start</code>: Start docker compose stack to develop with AVD and CVP collection (alias: <code>start</code>)<ul>
+<li>Deploy an <a href="https://hub.docker.com/repository/docker/titom73/mkdocs">mkdoc</a> instance to expose AVD documentation with live reload for development purposes.</li>
+<li>Deploy an <a href="https://hub.docker.com/repository/docker/titom73/mkdocs">mkdoc</a> instance to expose CVP documentation with live reload for development purposes.</li>
+<li>Deploy an <a href="https://hub.docker.com/repository/docker/avdteam/base">AVD runner</a> with a pseudo terminal connected to shell for ansible execution</li>
+</ul>
+</li>
+<li><code>dev-stop</code>: Stop docker compose stack and remove containers (alias: <code>stop</code>)</li>
+<li><code>dev-run</code>: Run a shell attached to ansible container (alias: <code>shell</code>)</li>
+<li><code>dev-reload</code>: Stop and Start docker-compose stack</li>
+</ul>
+<h4 id="commands-for-docker-only">Commands for docker only<a class="headerlink" href="#commands-for-docker-only" title="Permanent link">#</a></h4>
+<ul>
+<li><code>run</code>: Run a <a href="https://hub.docker.com/repository/docker/avdteam/base">docker container</a> with local folder mounted under <code>/projects</code>. This command supports some option to test development version like:<ul>
+<li><code>ANSIBLE_VERSION</code>: Specific version of ansible to install during container startup.</li>
+<li><code>PIP_REQ</code>: Specific pip requirements file to install during container startup.</li>
+</ul>
+</li>
+</ul>
+<h5 id="command-for-image-management">Command for image management<a class="headerlink" href="#command-for-image-management" title="Permanent link">#</a></h5>
+<ul>
+<li><code>update</code>: Get latest version of <a href="https://hub.docker.com/repository/docker/avdteam/base">AVD runner</a> and <a href="https://hub.docker.com/repository/docker/titom73/mkdocs">mkdoc</a> servers</li>
+<li><code>clean</code>: Remove avd image from local repository</li>
+</ul>
 <h4 id="run-avd-shell">Run AVD shell<a class="headerlink" href="#run-avd-shell" title="Permanent link">#</a></h4>
 <p>We are going to start a <a href="https://hub.docker.com/repository/docker/avdteam/base">new container</a> running ansible with all the python requirements and mount local folder under <code>/projects</code>. if image is missing, docker will pull out image for you automatically.</p>
 <div class="highlight"><pre><span></span><code>$ docker run --rm -it -v <span class="k">$(</span>PWD<span class="k">)</span>/:/projects avdteam/base:3.6
