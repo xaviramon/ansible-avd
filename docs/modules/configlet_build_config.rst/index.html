@@ -708,8 +708,20 @@
 
 
   <li class="md-nav__item">
-    <a href="https://github.com/aristanetworks/ansible-cvp" title="Arista CloudVision Modules" class="md-nav__link">
-      Arista CloudVision Modules
+    <a href="https://github.com/aristanetworks/ansible-avd" title="Arista AVD Modules" class="md-nav__link">
+      Arista AVD Modules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/arista-netdevops-community/avd-install" title="Arista Installation Script" class="md-nav__link">
+      Arista Installation Script
     </a>
   </li>
 
@@ -900,13 +912,13 @@
 
 <p></br></p>
 <h3 id="examples">Examples:<a class="headerlink" href="#examples" title="Permanent link">#</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="x"># tasks file for cvp_configlet_upload</span>
-<span class="x">- name: generate intented variables</span>
-<span class="x">  tags: [build, provision]</span>
-<span class="x">  configlet_build_config:</span>
-<span class="x">    configlet_dir: &#39;</span><span class="cp">{{</span> <span class="nv">configlet_dir</span> <span class="cp">}}</span><span class="x">&#39;</span>
-<span class="x">    configlet_prefix: &#39;</span><span class="cp">{{</span> <span class="nv">configlets_prefix</span> <span class="cp">}}</span><span class="x">&#39;</span>
-<span class="x">    configlet_extension: &#39;</span><span class="cp">{{</span><span class="nv">configlet_extension</span><span class="cp">}}</span><span class="x">&#39;</span>
+<div class="codehilite"><pre><span></span><code><span class="c1"># tasks file for cvp_configlet_upload</span>
+<span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">generate</span> <span class="n">intented</span> <span class="n">variables</span>
+  <span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">build</span><span class="p">,</span> <span class="n">provision</span><span class="p">]</span>
+  <span class="n">configlet_build_config</span><span class="p">:</span>
+    <span class="n">configlet_dir</span><span class="p">:</span> <span class="s1">&#39;{{ configlet_dir }}&#39;</span>
+    <span class="n">configlet_prefix</span><span class="p">:</span> <span class="s1">&#39;{{ configlets_prefix }}&#39;</span>
+    <span class="n">configlet_extension</span><span class="p">:</span> <span class="s1">&#39;{{configlet_extension}}&#39;</span>
 </code></pre></div>
 
 
