@@ -1128,7 +1128,7 @@
 <div class="highlight"><pre><span></span><code>$ tree -L <span class="m">3</span> -d
 .
 ├── inventories
-│   └── topology01
+│   └── eapi-example
 │       ├── group_vars
 │       ├── host_vars
 │       └── inventory.yml
@@ -1157,7 +1157,7 @@
 <li><code>AVD_TENANTS_NETWORKS</code> is a special group housing 2 groups already configured: <code>AVD_L{2|3}LEAFS</code>. This group will configure VNI/VLAN across the fabric, so we want to make leafs part of the configuration.</li>
 <li><code>AVD_SERVERS</code> as similar behavior to previous group. Its goal is to configure downlinks to compute nodes.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="c1"># vim inventories/topology01/inventory.yml</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># vim inventories/eapi-example/inventory.yml</span>
 <span class="nn">---</span>
 <span class="nt">AVD</span><span class="p">:</span>
   <span class="nt">children</span><span class="p">:</span>
@@ -1222,7 +1222,7 @@
 <p>Based on inventory we did in the previous section, it is time to create <code>group_vars</code>.</p>
 <h5 id="generic-fabric-information">Generic Fabric Information<a class="headerlink" href="#generic-fabric-information" title="Permanent link">#</a></h5>
 <p>All the documentation is available here, but below is a short example. All this information will be configured on all devices.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># vim inventories/inetsix-eapi/group_vars/AVD.yml</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># vim inventories/eapi-example/group_vars/AVD.yml</span>
 <span class="nn">---</span>
 <span class="c1"># local users</span>
 <span class="nt">local_users</span><span class="p">:</span>
@@ -1257,7 +1257,7 @@
 </code></pre></div>
 
 <h5 id="configure-fabric-topology">Configure Fabric topology<a class="headerlink" href="#configure-fabric-topology" title="Permanent link">#</a></h5>
-<p>Fabric topology is configured in <a href="https://github.com/inetsix/demo-avd-evpn-eve-ng/blob/master/inventories/inetsix-eapi/group_vars/AVD_FABRIC.yml"><code>inventories/inetsix-eapi/group_vars/AVD_FABRIC.yml</code></a> which is file that covers <code>AVD_FABRIC</code> group we defined in <a href="#inventory-file">inventory</a>. This file contains all the base information to create initial configuration:</p>
+<p>Fabric topology is configured under <code>inventories/eapi-example/group_vars/AVD_FABRIC.yml</code> which is file that covers <code>AVD_FABRIC</code> group we defined in <a href="#inventory-file">inventory</a>. This file contains all the base information to create initial configuration:</p>
 <p>You can also refer to <a href="https://github.com/aristanetworks/ansible-avd/blob/devel/ansible_collections/arista/avd/roles/eos_l3ls_evpn/README.md#fabric-topology-variables"><strong>Arista Validated Design</strong> documentation</a> to get a description of every single option available.</p>
 <ul>
 <li>Subnet to use for underlay, loopback and vtep:</li>
@@ -1349,7 +1349,7 @@
 <li>Symetric IRB model</li>
 </ul>
 <p>Model defines a set of tenants (user&rsquo;s defined) where you can configure VRF or <code>l2vlans</code> or a mix of them. Let&rsquo;s take a look at how we configure such services.</p>
-<p>All these configurations shall be configured in file <a href="https://github.com/inetsix/demo-avd-evpn-eve-ng/blob/3a461e0ce25afb25d4e51f620bafd324018c1189/inventories/inetsix-eapi/group_vars/AVD_L3LEAFS.yml"><code>AVD_TENANTS_NETWORKS.yml</code></a></p>
+<p>All these configurations shall be configured in file <code>AVD_TENANTS_NETWORKS.yml</code></p>
 <h5 id="l2-services">L2 Services<a class="headerlink" href="#l2-services" title="Permanent link">#</a></h5>
 <p>Configure a pure L2 service using <code>EVPN route type 2</code> only:</p>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
@@ -1470,7 +1470,7 @@ VNI         VLAN        Source       Interface           802.1Q Tag
 
 <p>In <code>TENANT_A_PROJECT02</code>, we can also see an optional feature named <strong><code>vtep_diagnostic</code></strong>. This option allows you to create a loopback in this VRF and do some connectivity test.</p>
 <h5 id="configure-downlinks">Configure downlinks<a class="headerlink" href="#configure-downlinks" title="Permanent link">#</a></h5>
-<p>As we have configured L3LS fabric, EVPN/VXLAN overlay, services, it is now time to configure ports to connect servers. Ports should be configured in <a href="https://github.com/inetsix/demo-avd-evpn-eve-ng/blob/3a461e0ce25afb25d4e51f620bafd324018c1189/inventories/inetsix-eapi/group_vars/AVD_SERVERS.yml"><code>AVD_SERVERS.yml</code></a>.</p>
+<p>As we have configured L3LS fabric, EVPN/VXLAN overlay, services, it is now time to configure ports to connect servers. Ports should be configured in <code>AVD_SERVERS.yml</code>.</p>
 <p>You first have to configure port profile. it is basically a description of how the port will be configured (<code>access</code> or <code>trunk</code>) and which set of vlan(s) will be configured</p>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">port_profiles</span><span class="p">:</span>
