@@ -478,6 +478,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#default-variables" class="md-nav__link">
+    Default Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#requirements" class="md-nav__link">
     Requirements
   </a>
@@ -776,6 +783,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#default-variables" class="md-nav__link">
+    Default Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#requirements" class="md-nav__link">
     Requirements
   </a>
@@ -822,6 +836,7 @@
 <li><a href="#ansible-role-eos_config_deploy_eapi">Ansible Role: eos_config_deploy_eapi</a></li>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#role-inputs-and-outputs">Role Inputs and Outputs</a></li>
+<li><a href="#default-variables">Default Variables</a></li>
 <li><a href="#requirements">Requirements</a></li>
 <li><a href="#license">License</a></li>
 </ul>
@@ -841,14 +856,34 @@
 </ul>
 <p><strong>Outputs:</strong></p>
 <ul>
-<li>Device running-configuration (backup).</li>
+<li>Device running-configuration before configuration is replaced (snapshot).</li>
+<li>Device running-configuration after configuration is replaced (backup).</li>
 </ul>
 <p><strong>Tasks:</strong></p>
 <ol>
-<li>Replace configuration on device with intended EOS configuration (Only when change is detected when configuration is generated). If changed, saves to startup-config, and notifies handler to backup configuration.</li>
-<li>Show running configuration of device (handler)</li>
-<li>Copy configuration to: <code>./config_backup/{{ inventory_hostname }}.cfg</code> (handler)</li>
+<li>Take a backup of the running configuration before configuration is replaced (pre) - (optional, default false).</li>
+<li>Destination: <code>{{ pre_running_config_backup_dir }}/{{ pre_running_config_backup_filename }}</code></li>
+<li>Replace configuration on device with intended EOS configuration. If changed, saves to startup-config, and notifies handler to backup configuration.</li>
+<li>Backup Configuration after the configuration is replaced (post) with handler.</li>
+<li>Destination: <code>{{ post_running_config_backup_dir }}/{{ post_running_config_backup_filename }}</code>.</li>
 </ol>
+<h3 id="default-variables">Default Variables<a class="headerlink" href="#default-variables" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Peform config backup before config replace</span>
+<span class="nt">eos_config_deploy_eapi_pre_running_config_backup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+<span class="c1"># Root directory where to build output structure</span>
+<span class="nt">root_dir</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">inventory_dir</span><span class="nv"> </span><span class="s">}}&#39;</span>
+
+<span class="c1"># Backup directories path and filenames</span>
+<span class="nt">post_running_config_backup_filename</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">inventory_hostname</span><span class="nv"> </span><span class="s">}}_post_running-config.conf&quot;</span>
+<span class="nt">post_running_config_backup_dir_name</span><span class="p">:</span> <span class="s">&#39;config_backup&#39;</span>
+<span class="nt">post_running_config_backup_dir</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">root_dir</span><span class="nv"> </span><span class="s">}}/{{</span><span class="nv"> </span><span class="s">post_running_config_backup_dir_name</span><span class="nv"> </span><span class="s">}}&#39;</span>
+
+<span class="nt">pre_running_config_backup_filename</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">inventory_hostname</span><span class="nv"> </span><span class="s">}}_pre_running-config.conf&quot;</span>
+<span class="nt">pre_running_config_backup_dir_name</span><span class="p">:</span> <span class="s">&#39;config_backup&#39;</span>
+<span class="nt">pre_running_config_backup_dir</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">root_dir</span><span class="nv"> </span><span class="s">}}/{{</span><span class="nv"> </span><span class="s">pre_running_config_backup_dir_name</span><span class="nv"> </span><span class="s">}}&#39;</span>
+</code></pre></div>
+
 <h3 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h3>
 <p>Requirements are located here: <a href="../..#Requirements">avd-requirements</a></p>
 <h3 id="license">License<a class="headerlink" href="#license" title="Permanent link">#</a></h3>
