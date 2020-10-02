@@ -995,7 +995,7 @@
                 <h2 id="ansible-role-eos_validate_state">Ansible Role: eos_validate_state<a class="headerlink" href="#ansible-role-eos_validate_state" title="Permanent link">#</a></h2>
 <p><strong>Table of Contents:</strong></p>
 <ul>
-<li><a href="#ansible-role-eos_validate_state">Ansible Role: eos_validate_state</a></li>
+<li><a href="#ansible-role-eos_validate_state">Ansible Role: eos_validate_state</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#role-inputs-and-outputs">Role Inputs and Outputs</a></li>
 <li><a href="#default-variables">Default Variables</a></li>
@@ -1009,6 +1009,8 @@
 </li>
 <li><a href="#usage-example">Usage example</a></li>
 <li><a href="#license">License</a></li>
+</ul>
+</li>
 </ul>
 <h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h3>
 <p><strong>eos_validate_state</strong> is role leveraged to validate operational states of Arista EOS devices.</p>
@@ -1038,10 +1040,8 @@
 <li>Include device structured configuration.</li>
 <li>
 <p>Collect and assert device state:</p>
-</li>
-<li>
-<p>(<a href="tasks/hardware.yml">hardware</a>) Validate environment (power supplies status).</p>
-</li>
+<ul>
+<li>(<a href="tasks/hardware.yml">hardware</a>) Validate environment (power supplies status).</li>
 <li>(<a href="tasks/hardware.yml">hardware</a>) Validate environment (fan status).</li>
 <li>(<a href="tasks/hardware.yml">hardware</a>) Validate environment (temperature).</li>
 <li>(<a href="tasks/hardware.yml">hardware</a>) Validate transceivers manufacturer.</li>
@@ -1056,8 +1056,8 @@
 <li>(<a href="tasks/ip_reachability.yml">ip_reachability</a>) Validate IP reachability (on directly connected interfaces).</li>
 <li>(<a href="tasks/bgp_check.yml">bgp_check</a>) Validate ArBGP is configured and operating.</li>
 <li>(<a href="tasks/bgp_check.yml">bgp_check</a>) Validate ip bgp and bgp evpn sessions state.</li>
-<li>
-<p>(<a href="tasks/reload_cause.yml">reload_cause</a>) Validate last reload cause. (Optional)</p>
+<li>(<a href="tasks/reload_cause.yml">reload_cause</a>) Validate last reload cause. (Optional)</li>
+</ul>
 </li>
 <li>
 <p>Create CSV report.</p>

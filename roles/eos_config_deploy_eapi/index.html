@@ -899,12 +899,14 @@
                 <h2 id="ansible-role-eos_config_deploy_eapi">Ansible Role: eos_config_deploy_eapi<a class="headerlink" href="#ansible-role-eos_config_deploy_eapi" title="Permanent link">#</a></h2>
 <p><strong>Table of Contents:</strong></p>
 <ul>
-<li><a href="#ansible-role-eos_config_deploy_eapi">Ansible Role: eos_config_deploy_eapi</a></li>
+<li><a href="#ansible-role-eos_config_deploy_eapi">Ansible Role: eos_config_deploy_eapi</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#role-inputs-and-outputs">Role Inputs and Outputs</a></li>
 <li><a href="#default-variables">Default Variables</a></li>
 <li><a href="#requirements">Requirements</a></li>
 <li><a href="#license">License</a></li>
+</ul>
+</li>
 </ul>
 <h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h3>
 <p><strong>eos_config_deploy_eapi</strong>, is a role that deploys the configuration to Arista EOS devices.</p>
@@ -927,11 +929,15 @@
 </ul>
 <p><strong>Tasks:</strong></p>
 <ol>
-<li>Take a backup of the running configuration before configuration is replaced (pre) - (optional, default false).</li>
+<li>Take a backup of the running configuration before configuration is replaced (pre) - (optional, default false).<ol>
 <li>Destination: <code>{{ pre_running_config_backup_dir }}/{{ pre_running_config_backup_filename }}</code></li>
+</ol>
+</li>
 <li>Replace configuration on device with intended EOS configuration. If changed, saves to startup-config, and notifies handler to backup configuration.</li>
-<li>Backup Configuration after the configuration is replaced (post) with handler.</li>
+<li>Backup Configuration after the configuration is replaced (post) with handler.<ol>
 <li>Destination: <code>{{ post_running_config_backup_dir }}/{{ post_running_config_backup_filename }}</code>.</li>
+</ol>
+</li>
 </ol>
 <h3 id="default-variables">Default Variables<a class="headerlink" href="#default-variables" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Peform config backup before config replace</span>

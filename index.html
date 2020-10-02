@@ -937,7 +937,7 @@
                 <h2 id="ansible-collection-for-arista-validated-designs-aristaavd">Ansible Collection For Arista Validated Designs - arista.avd<a class="headerlink" href="#ansible-collection-for-arista-validated-designs-aristaavd" title="Permanent link">#</a></h2>
 <p><strong>Table of Contents:</strong></p>
 <ul>
-<li><a href="#ansible-collection-for-arista-validated-designs---aristaavd">Ansible Collection For Arista Validated Designs - arista.avd</a></li>
+<li><a href="#ansible-collection-for-arista-validated-designs---aristaavd">Ansible Collection For Arista Validated Designs - arista.avd</a><ul>
 <li><a href="#roles-overview">Roles Overview</a></li>
 <li><a href="#custom-plugins">Custom Plugins</a></li>
 <li><a href="#installation">Installation</a><ul>
@@ -947,6 +947,8 @@
 </li>
 <li><a href="#example-playbooks">Example Playbooks</a></li>
 <li><a href="#license">License</a></li>
+</ul>
+</li>
 </ul>
 <h3 id="roles-overview">Roles Overview<a class="headerlink" href="#roles-overview" title="Permanent link">#</a></h3>
 <p>This repository provides roles for Ansible&rsquo;s collection <strong>arista.avd</strong> with the following content:</p>
@@ -1002,8 +1004,10 @@ cvprac==1.0.4
 
 <p><strong>Ansible Configuration INI file:</strong></p>
 <ul>
-<li>enable jinja2 extensions: loop controls and do</li>
+<li>enable jinja2 extensions: loop controls and do<ul>
 <li><a href="https://svn.python.org/projects/external/Jinja-2.1.1/docs/_build/html/extensions.html">Jinja2 Extensions Documentation</a></li>
+</ul>
+</li>
 <li>By default, Ansible will issue a warning when a duplicate dict key is encountered in YAML. We recommend to change to error instead and stop playbook execution when a duplicate key is detected.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="na">jinja2_extensions</span><span class="o">=</span><span class="s">jinja2.ext.loopcontrols,jinja2.ext.do</span>

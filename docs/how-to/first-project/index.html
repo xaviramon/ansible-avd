@@ -1216,9 +1216,11 @@
 <ul>
 <li><code>AVD_FABRIC</code> represents complete fabric topology we are going to configure with AVD.</li>
 <li><code>AVD_SPINES</code> is a group where all spine devices belongs.</li>
-<li><code>AVD_L3LEAFS</code>: is a group to locate all VTEP devices (LEAFs running EVPN/VXLAN). Part of this group, we create one sub-group for every LEAF (single or MLAG) as highlighted below.</li>
+<li><code>AVD_L3LEAFS</code>: is a group to locate all VTEP devices (LEAFs running EVPN/VXLAN). Part of this group, we create one sub-group for every LEAF (single or MLAG) as highlighted below.<ul>
 <li><code>AVD_LEAF1</code> represent LEAF for POD01 and is for an MLAG pair.</li>
 <li><code>AVD_LEAF3</code> represent a single LEAF outside of MLAG.</li>
+</ul>
+</li>
 <li><code>AVD_L2LEAFS</code> represent Aggregation layer in our current design. This layer is optional, but in our design it is in place. It works like for <code>AVD_L3LEAFS</code> group.</li>
 <li><code>AVD_TENANTS_NETWORKS</code> is a special group housing 2 groups already configured: <code>AVD_L{2|3}LEAFS</code>. This group will configure VNI/VLAN across the fabric, so we want to make leafs part of the configuration.</li>
 <li><code>AVD_SERVERS</code> as similar behavior to previous group. Its goal is to configure downlinks to compute nodes.</li>

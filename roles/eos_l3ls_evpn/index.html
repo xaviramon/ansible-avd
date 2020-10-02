@@ -1159,7 +1159,7 @@
                 <h2 id="ansible-role-eos_l3ls_evpn">Ansible Role: eos_l3ls_evpn<a class="headerlink" href="#ansible-role-eos_l3ls_evpn" title="Permanent link">#</a></h2>
 <p><strong>Table of Contents:</strong></p>
 <ul>
-<li><a href="#ansible-role-eos_l3ls_evpn">Ansible Role: eos_l3ls_evpn</a></li>
+<li><a href="#ansible-role-eos_l3ls_evpn">Ansible Role: eos_l3ls_evpn</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#role-inputs-and-outputs">Role Inputs and Outputs</a></li>
 <li><a href="#requirements">Requirements</a></li>
@@ -1167,15 +1167,19 @@
 <li><a href="#common-device-configuration-variables">Common Device Configuration Variables</a></li>
 <li><a href="#fabric-underlay-and-overlay-topology-variables">Fabric Underlay and Overlay Topology Variables</a></li>
 <li><a href="#fabric-topology-variables">Fabric Topology Variables</a></li>
-<li><a href="#type-variable">Type Variable</a></li>
+<li><a href="#type-variable">Type Variable</a><ul>
 <li><a href="#spine-variables">Spine Variables</a></li>
 <li><a href="#l3-leaf-variables">L3 Leaf Variables</a></li>
 <li><a href="#l2-leafs-variables">L2 Leafs Variables</a></li>
+</ul>
+</li>
 <li><a href="#network-services-variables---vrfsvlans">Network Services Variables - VRFs/VLANs</a></li>
-<li><a href="#server-edge-port-connectivity">Server Edge Port Connectivity</a></li>
+<li><a href="#server-edge-port-connectivity">Server Edge Port Connectivity</a><ul>
 <li><a href="#single-attached-server-scenario">Single attached server scenario</a></li>
 <li><a href="#mlag-dual-attached-server-scenario">MLAG dual-attached server scenario</a></li>
 <li><a href="#evpn-aa-esi-dual-attached-server-scenario">EVPN A/A ESI dual-attached server scenario</a></li>
+</ul>
+</li>
 <li><a href="#variable-to-attach-additional-configlets">Variable to attach additional configlets</a></li>
 <li><a href="#event-handlers">Event Handlers</a></li>
 <li><a href="#platform-specific-settings">Platform Specific settings</a></li>
@@ -1184,15 +1188,19 @@
 </li>
 <li><a href="#license">License</a></li>
 </ul>
+</li>
+</ul>
 <h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h3>
 <p><strong>eos_l3ls_evpn</strong>, is a role that provides an abstracted data model to deploy a L3 Leaf and Spine fabric leveraging VXLAN data-plane with an EVPN control-plane.</p>
 <p>The <strong>eos_l3ls_evpn</strong> role:</p>
 <ul>
 <li>Enables network engineers to deploy Arista L3 Leaf &amp; Spine fabric underlay and overlay network services effectively and with consistency.</li>
 <li>Designed to be extended easily, leveraging a <strong><em>&ldquo;stackable template architecture&rdquo;</em></strong>.</li>
-<li>Designed to be used with the <strong>eos_l3ls_config_gen</strong> role to generate a complete switch configuration and applied using a config replace strategy with either</li>
+<li>Designed to be used with the <strong>eos_l3ls_config_gen</strong> role to generate a complete switch configuration and applied using a config replace strategy with either<ul>
 <li><strong>eos_config_deploy_eapi</strong> role.</li>
 <li><strong>eos_config_deploy_cvp</strong> role.</li>
+</ul>
+</li>
 <li>Designed to generate the intended configuration offline, without relying on switch current state information.</li>
 <li>Facilitates the evaluation of the configuration prior to deployment with tools like <a href="https://www.batfish.org/">Batfish</a></li>
 </ul>
@@ -1206,11 +1214,13 @@
 </ul>
 <p><strong>Outputs:</strong></p>
 <ul>
-<li>A structured EOS configuration file in yaml format. This provides the following benefits:</li>
+<li>A structured EOS configuration file in yaml format. This provides the following benefits:<ul>
 <li>First, this allows us to naturally detect duplicate entries from inputs, as yaml dictionaries don&rsquo;t process duplicate keys.</li>
 <li>Leverage the structured data to create eos cli configuration.</li>
 <li>Leverage the structured data to create end user documentation.</li>
 <li>Leverage the structured data for pre and post fabric tests.</li>
+</ul>
+</li>
 <li>Fabric Documentation in Markdown format.</li>
 <li>Leaf and Spine Topology summary in csv format.</li>
 </ul>
@@ -1378,12 +1388,16 @@ Default values, are stored in the role defaults <a href="defaults/main.yml">main
 <h4 id="fabric-underlay-and-overlay-topology-variables">Fabric Underlay and Overlay Topology Variables<a class="headerlink" href="#fabric-underlay-and-overlay-topology-variables" title="Permanent link">#</a></h4>
 <ul>
 <li>The fabric underlay and overlay topology variables, define the elements related to build the L3 Leaf and Spine fabric.</li>
-<li>The following underlay routing protocols are supported:</li>
+<li>The following underlay routing protocols are supported:<ul>
 <li>BGP (default)</li>
 <li>OSPF.</li>
 <li>ISIS.</li>
-<li>Only summary network addresses need to be defined. IP addresses are then assigned to each node, based on its unique device id.</li>
+</ul>
+</li>
+<li>Only summary network addresses need to be defined. IP addresses are then assigned to each node, based on its unique device id.<ul>
 <li>To view IP address allocation and consumption, a summary is provided in the auto-generated fabric documentation in Markdown format.</li>
+</ul>
+</li>
 <li>The variables should be applied to all devices in the fabric.</li>
 </ul>
 <p><strong>Variables and Options:</strong></p>
@@ -1528,13 +1542,19 @@ Default values, are stored in the role defaults <a href="defaults/main.yml">main
 The variables should be applied to all devices in the fabric.</p>
 <p><img alt="Figure 2: Topology - naming convention" src="media/topology.gif" /></p>
 <ul>
-<li>Connectivity is defined from the child&rsquo;s device perspective.</li>
+<li>Connectivity is defined from the child&rsquo;s device perspective.<ul>
 <li>Source uplink interfaces and parent interfaces are defined on the child.</li>
-<li>A static unique identifier (id) is assigned to each device.</li>
+</ul>
+</li>
+<li>A static unique identifier (id) is assigned to each device.<ul>
 <li>This is leveraged to derive the IP address assignment from each summary defined in the Fabric Underlay and Overlay Topology Variables.</li>
-<li>Within the l3_leaf and l2_leaf dictionary variables, defaults can be defined.</li>
+</ul>
+</li>
+<li>Within the l3_leaf and l2_leaf dictionary variables, defaults can be defined.<ul>
 <li>This reduces user input requirements, limiting errors.</li>
 <li>The default variables can be overridden when defined under the node groups.</li>
+</ul>
+</li>
 <li>The ability to define a super-spine layer is planned for a future release of ansible-avd.</li>
 </ul>
 <h4 id="type-variable">Type Variable<a class="headerlink" href="#type-variable" title="Permanent link">#</a></h4>
@@ -1860,11 +1880,15 @@ The variables should be applied to all devices in the fabric.</p>
 <h4 id="network-services-variables-vrfsvlans">Network Services Variables - VRFs/VLANs<a class="headerlink" href="#network-services-variables-vrfsvlans" title="Permanent link">#</a></h4>
 <ul>
 <li>The network services variables provide an abstracted model to create L2 and L3 network services across the fabric.</li>
-<li>The network services are grouped by tenants. The definition of a tenant may vary between organizations.</li>
+<li>The network services are grouped by tenants. The definition of a tenant may vary between organizations.<ul>
 <li>e.g. Tenants can be organizations or departments.</li>
+</ul>
+</li>
 <li>The tenant shares a common vni range for mac vrf assignment.</li>
-<li>The filtering model allows for granular deployment of network service to the fabric leveraging the tenant name and tags applied to the service definition.</li>
+<li>The filtering model allows for granular deployment of network service to the fabric leveraging the tenant name and tags applied to the service definition.<ul>
 <li>This allows for the re-use of SVIs and VLANs across the fabric.</li>
+</ul>
+</li>
 </ul>
 <p><strong>Variables and Options:</strong></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># On mlag leafs, an SVI interface is defined per vrf, to establish iBGP peering. | Required (when mlag leafs in topology)</span>
