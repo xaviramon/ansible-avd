@@ -846,11 +846,9 @@
 <div class="highlight"><pre><span></span><code>  <span class="p p-Indicator">-</span> <span class="p p-Indicator">[</span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="nv">4</span><span class="p p-Indicator">,</span><span class="nv">5</span><span class="p p-Indicator">]</span> <span class="l l-Scalar l-Scalar-Plain">-&gt; &quot;1-5&quot;</span>
   <span class="p p-Indicator">-</span> <span class="p p-Indicator">[</span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="nv">7</span><span class="p p-Indicator">,</span><span class="nv">8</span><span class="p p-Indicator">]</span> <span class="l l-Scalar l-Scalar-Plain">-&gt; &quot;1-3,7-8&quot;</span>
 </code></pre></div>
-
 <p>To use this filter:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">{{</span> <span class="nv">list_to_compress</span> <span class="o">|</span> <span class="nf">arista</span><span class="nv">.avd.list_compress</span> <span class="cp">}}</span><span class="x"></span>
 </code></pre></div>
-
 <h4 id="natural_sort-filter"><strong>natural_sort filter</strong><a class="headerlink" href="#natural_sort-filter" title="Permanent link">#</a></h4>
 <p>The <code>natural_sort</code> filter provides the capabilities to sort a list or a dictionary of integers and/or strings that contain alphanumeric characters naturally. When leveraged on a dictionary, only the key value will be returned.</p>
 <p>To use this filter:</p>
@@ -858,7 +856,6 @@
 <span class="cp">{{</span> <span class="nv">natural_sorted_item</span> <span class="cp">}}</span><span class="x"></span>
 <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
 </code></pre></div>
-
 <h3 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">#</a></h3>
 <h4 id="inventory-to-cloudvision-containers"><strong>Inventory to CloudVision Containers</strong><a class="headerlink" href="#inventory-to-cloudvision-containers" title="Permanent link">#</a></h4>
 <p>The <code>inventory_to_container</code> module provides following capabilities:
@@ -878,7 +875,6 @@
       <span class="nt">configlet_prefix</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">configlets_prefix</span><span class="nv"> </span><span class="s">}}&#39;</span>
       <span class="nt">destination</span><span class="p">:</span> <span class="s">&#39;{{playbook_dir}}/intended/structured_configs/{{inventory_hostname}}.yml&#39;</span>
 </code></pre></div>
-
 <p>Inventory example applied to this example:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">all</span><span class="p">:</span>
   <span class="nt">children</span><span class="p">:</span>
@@ -902,7 +898,6 @@
                     <span class="nt">DC1-LEAF2A</span><span class="p">:</span>
                     <span class="nt">DC1-LEAF2B</span><span class="p">:</span>
 </code></pre></div>
-
 <p>Generated output ready to be used by <a href="https://github.com/aristanetworks/ansible-cvp/"><code>arista.cvp</code></a> collection:</p>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">CVP_DEVICES</span><span class="p">:</span>

@@ -1052,7 +1052,6 @@
 <p>This role requires to install <code>arista.cvp</code> collection to support CloudVision interactions.</p>
 <div class="highlight"><pre><span></span><code>$ ansible-galaxy collection install arista.cvp
 </code></pre></div>
-
 <blockquote>
 <p><strong>NOTE</strong>: When using ansible-cvp modules, the user that is executing the ansible-playbook has to have access to both CVP and the EOS CLI.</p>
 </blockquote>
@@ -1098,7 +1097,6 @@
           <span class="c1"># Configuration to get Virtual Env information</span>
           <span class="nt">ansible_python_interpreter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$(which python3)</span>
 </code></pre></div>
-
 <h4 id="module-variables">Module variables<a class="headerlink" href="#module-variables" title="Permanent link">#</a></h4>
 <ul>
 <li><strong><code>container_root</code></strong>: Inventory group name where Fabric devices are located. Default: <code>all</code>.</li>
@@ -1120,7 +1118,6 @@
       <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
       <span class="nt">execute_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
-
 <h5 id="add-additional-configlets">Add additional configlets<a class="headerlink" href="#add-additional-configlets" title="Permanent link">#</a></h5>
 <p>This structure MUST be part of <code>group_vars</code> targeting <code>container_root</code>. Below is an example applied to <code>eos_l3_evpn</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># group_vars/DC1_FABRIC.yml</span>
@@ -1143,7 +1140,6 @@
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Second configlet to attach&gt;</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;...&gt;</span>
 </code></pre></div>
-
 <p>Full example:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># group_vars/DC1_FABRIC.yml</span>
 
@@ -1159,7 +1155,6 @@
     <span class="nt">DC1-L2LEAF2B</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">GLOBAL-ALIASES</span>
 </code></pre></div>
-
 <p><em>Notes:</em></p>
 <ul>
 <li>These configlets <strong>MUST</strong> be created previously on CloudVision server and won&rsquo;t be managed by AVD roles.</li>
@@ -1173,7 +1168,6 @@
 </ul>
 <div class="highlight"><pre><span></span><code>$ ansible-playbook playbook.to.deploy.with.cvp.yml --tags <span class="s2">&quot;provision&quot;</span>
 </code></pre></div>
-
 <h4 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">#</a></h4>
 <ul>
 <li>None.</li>

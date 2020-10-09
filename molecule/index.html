@@ -924,7 +924,6 @@
 --&gt; Initializing new scenario test...
 Initialized scenario in ./molecule/test successfully.
 </code></pre></div>
-
 <h4 id="configure-molecule">Configure Molecule<a class="headerlink" href="#configure-molecule" title="Permanent link">#</a></h4>
 <p>Once, default structure is created by molecule itself, you can customize your molecule settings to define:</p>
 <ul>
@@ -940,7 +939,6 @@ Initialized scenario in ./molecule/test successfully.
 <span class="nt">driver</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker</span>
 </code></pre></div>
-
 <p>Define inventory for provisioner. This section will run a playbook to build AVD configurations</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># vim molecule.yml</span>
 <span class="nt">provisioner</span><span class="p">:</span>
@@ -963,7 +961,6 @@ Initialized scenario in ./molecule/test successfully.
   <span class="nt">ansible_args</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">--inventory=inventory/hosts</span>
 </code></pre></div>
-
 <p>Then we should define a platform to run molecule testing. In AVD context, this platform should be a device part of testing inventory</p>
 <div class="highlight"><pre><span></span><code>platforms:
   - name: DC1-LEAF1A
@@ -978,7 +975,6 @@ Initialized scenario in ./molecule/test successfully.
       - DC1_FABRIC
       - AVD_LAB
 </code></pre></div>
-
 <p>Then, configure sequence to run during molecule execution:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">scenario</span><span class="p">:</span>
   <span class="nt">test_sequence</span><span class="p">:</span>
@@ -988,7 +984,6 @@ Initialized scenario in ./molecule/test successfully.
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">idempotence</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">verify</span> <span class="c1"># Optional based on scenario we need to test</span>
 </code></pre></div>
-
 <p>In this configuration, molecule will run playbooks in that specific order:</p>
 <ul>
 <li>destroy: <code>destroy.yml</code> playbook</li>
@@ -1012,7 +1007,6 @@ Initialized scenario in ./molecule/test successfully.
          <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">arista.avd.build_output_folders</span>
       <span class="nt">run_once</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
-
 <h5 id="converge-playbook">Converge playbook<a class="headerlink" href="#converge-playbook" title="Permanent link">#</a></h5>
 <p>This playbook builds AVD content:</p>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
@@ -1032,7 +1026,6 @@ Initialized scenario in ./molecule/test successfully.
       <span class="nt">import_role</span><span class="p">:</span>
          <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">arista.avd.eos_cli_config_gen</span>
 </code></pre></div>
-
 <p>This playbook will be run twice: first as <strong>converge</strong> sequence and second as <strong>idempotency</strong></p>
 <h5 id="destroy-playbook">Destroy playbook<a class="headerlink" href="#destroy-playbook" title="Permanent link">#</a></h5>
 <p>Because we want to save content to CI, this sequence should not be added to the end of the scenario but only at the begining to cleanup pre-execution.</p>
@@ -1053,7 +1046,6 @@ Initialized scenario in ./molecule/test successfully.
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">intended</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">config_backup</span>
 </code></pre></div>
-
 <h5 id="verify-playbook">Verify playbook<a class="headerlink" href="#verify-playbook" title="Permanent link">#</a></h5>
 <p>Not leverage in current implementation.</p>
 <h4 id="inventory-creation">Inventory creation<a class="headerlink" href="#inventory-creation" title="Permanent link">#</a></h4>
@@ -1067,7 +1059,6 @@ Initialized scenario in ./molecule/test successfully.
 <span class="nn">---</span>
 <span class="nt">root_dir</span><span class="p">:</span> <span class="s">&#39;{{playbook_dir}}&#39;</span>
 </code></pre></div>
-
 <h3 id="manual-execution">Manual execution<a class="headerlink" href="#manual-execution" title="Permanent link">#</a></h3>
 <p>To manually run molecule testing, follow commands:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Install development requirements</span>
@@ -1082,7 +1073,6 @@ $ molecule <span class="nb">test</span> -s &lt;scenario-name&gt;
 <span class="c1"># Run molecule for all test</span>
 $ molecule <span class="nb">test</span> --all
 </code></pre></div>
-
 <h3 id="continuous-integration">Continuous Integration<a class="headerlink" href="#continuous-integration" title="Permanent link">#</a></h3>
 <p>These scenario are all included in github actions and executed on <code>push</code> and <code>pull_request</code> when a file under <code>roles</code> and/or <code>molecule</code> is updated.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Ansible Molecule</span>

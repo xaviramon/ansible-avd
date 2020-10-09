@@ -937,7 +937,6 @@ management api http-commands
       no shutdown
 !
 </code></pre></div>
-
 <h3 id="configure-network-interfaces">Configure network interfaces<a class="headerlink" href="#configure-network-interfaces" title="Permanent link">#</a></h3>
 <p>First of all, we have to configure your network interfaces. Let&rsquo;s configure the following:</p>
 <ul>
@@ -963,11 +962,9 @@ management api http-commands
       <span class="nt">nameservers</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
   <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
 </code></pre></div>
-
 <p>And then apply your changes on your server:</p>
 <div class="highlight"><pre><span></span><code>$ sudo netplan apply
 </code></pre></div>
-
 <h3 id="configure-nat-access-to-eapi">Configure NAT access to eAPI<a class="headerlink" href="#configure-nat-access-to-eapi" title="Permanent link">#</a></h3>
 <p>We an now defined NAT rules to forward traffic coming from network-runner to your EOS devices. Here we will create a very small shell script to do:</p>
 <ul>
@@ -1021,7 +1018,6 @@ iptables -A FORWARD -p tcp -d <span class="m">10</span>.73.1.0/24 --dport <span 
 
 <span class="nb">echo</span> <span class="s2">&quot;-&gt; Configuration done&quot;</span>
 </code></pre></div>
-
 <p>Then, copy this script on your NAT gateway and run it using <strong>sudo</strong> or with root permission:</p>
 <div class="highlight"><pre><span></span><code>$ sudo sh expose-eos.sh
 <span class="o">[</span>sudo<span class="o">]</span> password <span class="k">for</span> tom:
@@ -1031,7 +1027,6 @@ Activate masquerading
 * Activate SSH forwarding with base port 810x
 -&gt; Configuration <span class="k">done</span>
 </code></pre></div>
-
 <h3 id="test-remote-access">Test remote access<a class="headerlink" href="#test-remote-access" title="Permanent link">#</a></h3>
 <p>Before running an ansible script with eAPI, you can manually test end to end connectivity using either cURL or your own browser:</p>
 <div class="highlight"><pre><span></span><code>$ curl -k -D - https://&lt; NAT GATEWAY IP &gt;:8001
@@ -1039,7 +1034,6 @@ HTTP/1.1 301 Moved Permanently
 Server: nginx
 [...]
 </code></pre></div>
-
 <h3 id="configure-ansible-inventory">Configure Ansible inventory<a class="headerlink" href="#configure-ansible-inventory" title="Permanent link">#</a></h3>
 <p>So as we now have a single IP address to connect to all devices in our lab, we will leverage <code>ansible_port</code> for per device connectivity</p>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>

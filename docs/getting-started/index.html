@@ -931,7 +931,6 @@ $ <span class="nb">cd</span> arista-ansible
 <span class="c1"># Spin up container for easy access</span>
 $ make dev-start
 </code></pre></div>
-
 <blockquote>
 <p>Note: Docker &amp; docker-compose must be installed on your laptop</p>
 </blockquote>
@@ -967,7 +966,6 @@ $ mkdir host_vars/
 $ mkdir roles/
 $ mkdir inventory
 </code></pre></div>
-
 <h3 id="describe-fabric">Describe fabric<a class="headerlink" href="#describe-fabric" title="Permanent link">#</a></h3>
 <p>Please refer to <a href="../../roles/eos_l3ls_evpn/"><code>eos_l3ls_evpn</code> documentation</a></p>
 <h3 id="example-playbooks">Example Playbooks<a class="headerlink" href="#example-playbooks" title="Permanent link">#</a></h3>
@@ -989,7 +987,6 @@ $ mkdir inventory
       import_role:
          name: arista.avd.eos_config_deploy_cvp
 </code></pre></div>
-
 <h4 id="an-example-playbook-to-deploy-vxlanevpn-fabric-via-eapi">An example playbook to deploy VXLAN/EVPN Fabric via eAPI<a class="headerlink" href="#an-example-playbook-to-deploy-vxlanevpn-fabric-via-eapi" title="Permanent link">#</a></h4>
 <p><img alt="Figure 2: Example Playbook eAPI Deployment" src="../../media/evpn-deploy-eapi.gif" /></p>
 <div class="highlight"><pre><span></span><code>- hosts: DC1_FABRIC
@@ -1008,7 +1005,6 @@ $ mkdir inventory
       import_role:
          name: arista.avd.eos_config_deploy_eapi
 </code></pre></div>
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
