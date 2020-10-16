@@ -2466,6 +2466,12 @@
     <span class="nt">ipv6_access_group_out</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; ipv6_access_list_name &gt;</span>
     <span class="nt">ospf_network_point_to_point</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
     <span class="nt">ospf_area</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; ospf_area &gt;</span>
+    <span class="nt">ospf_authentication</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; none | simple | message-digest &gt;</span>
+    <span class="nt">ospf_authentication_key</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">encrypted_password</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
+    <span class="nt">ospf_message_digest_keys</span><span class="p">:</span>
+      <span class="nt">&lt; id &gt;</span><span class="p">:</span>
+        <span class="nt">hash_algorithm</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; md5 | sha1 | sha 256 | sha384 | sha512 &gt;</span>
+        <span class="nt">key</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">encrypted_password</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
     <span class="nt">pim</span><span class="p">:</span>
       <span class="nt">ipv4</span><span class="p">:</span>
         <span class="nt">sparse_mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
@@ -2564,6 +2570,12 @@
           <span class="nt">administrative_distance</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 1-255 &gt;</span>
     <span class="nt">ospf_network_point_to_point</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
     <span class="nt">ospf_area</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; ospf_area &gt;</span>
+    <span class="nt">ospf_authentication</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; none | simple | message-digest &gt;</span>
+    <span class="nt">ospf_authentication_key</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">encrypted_password</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
+    <span class="nt">ospf_message_digest_keys</span><span class="p">:</span>
+      <span class="nt">&lt; id &gt;</span><span class="p">:</span>
+        <span class="nt">hash_algorithm</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; md5 | sha1 | sha 256 | sha384 | sha512 &gt;</span>
+        <span class="nt">key</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">encrypted_password</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
     <span class="nt">pim</span><span class="p">:</span>
       <span class="nt">ipv4</span><span class="p">:</span>
         <span class="nt">sparse_mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
@@ -3001,6 +3013,7 @@
     <span class="nt">&lt; process_id &gt;</span><span class="p">:</span>
       <span class="nt">passive_interface_default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
       <span class="nt">router_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address &gt;</span>
+      <span class="nt">log_adjacency_changes_detail</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
       <span class="nt">no_passive_interfaces</span><span class="p">:</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; interface_1 &gt;</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; interface_2 &gt;</span>
@@ -3055,13 +3068,13 @@
   <span class="nt">&lt; vmtracer_session_name_1 &gt;</span><span class="p">:</span>
     <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; url &gt;</span>
     <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; username &gt;</span>
-    <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; encrypted_password &gt;</span>
+    <span class="nt">password</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">encrypted_password</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
     <span class="nt">autovlan_disable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
     <span class="nt">source_interface</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; interface_name &gt;</span>
   <span class="nt">&lt; vmtracer_session_name_2 &gt;</span><span class="p">:</span>
     <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; url &gt;</span>
     <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; username &gt;</span>
-    <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; encrypted_password &gt;</span>
+    <span class="nt">password</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">encrypted_password</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
 </code></pre></div>
 <h4 id="banners">Banners<a class="headerlink" href="#banners" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nt">banners</span><span class="p">:</span>
