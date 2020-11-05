@@ -1967,7 +1967,7 @@ The variables should be applied to all devices in the fabric.</p>
             <span class="c1"># ip address virtual to configure VXLAN Anycast IP address</span>
             <span class="c1"># Conserves IP addresses in VXLAN deployments as it doesn&#39;t require unique IP addresses on each node.</span>
             <span class="c1"># Optional</span>
-            <span class="l l-Scalar l-Scalar-Plain">ip_address_virtual:</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+            <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
 
             <span class="c1"># ip virtual-router address</span>
             <span class="c1"># note, also requires an IP address to be configured on the SVI where it is applied.</span>
@@ -1982,6 +1982,9 @@ The variables should be applied to all devices in the fabric.</p>
 
               <span class="nt">&lt; l3_leaf_inventory_hostname_2 &gt;</span><span class="p">:</span>
                 <span class="nt">ip_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+
+            <span class="c1"># Defined interface MTU</span>
+            <span class="nt">mtu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; mtu &gt;</span>
 
           <span class="nt">&lt; 1-4096 &gt;</span><span class="p">:</span>
             <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
@@ -2071,6 +2074,7 @@ The variables should be applied to all devices in the fabric.</p>
             <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">opzone</span> <span class="p p-Indicator">]</span>
             <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
             <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.1.10.0/24</span>
+            <span class="nt">mtu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1400</span>
           <span class="nt">111</span><span class="p">:</span>
             <span class="nt">vni_override</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50111</span>
             <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant_A_OP_Zone_2</span>
