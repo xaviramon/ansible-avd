@@ -1910,6 +1910,29 @@ The variables should be applied to all devices in the fabric.</p>
 <span class="nt">mlag_ibgp_peering_vrfs</span><span class="p">:</span>
   <span class="nt">base_vlan</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 1-4000 | default -&gt; 3000 &gt;</span>
 
+<span class="c1"># Specify RD type | Optional</span>
+<span class="c1"># Route Distinguisher (RD) for L2 / L3 services is set to &lt;overlay_loopback&gt;:&lt;vni&gt; per default.</span>
+<span class="c1"># By configuring evpn_rd_type the Administrator subfield (first part of RD) can be set to other values.</span>
+<span class="c1">#</span>
+<span class="c1"># Note:</span>
+<span class="c1"># RD is a 48-bit value which is split into &lt;16-bit&gt;:&lt;32-bit&gt; or &lt;32-bit&gt;:&lt;16-bit&gt;.</span>
+<span class="c1"># For loopback or 32-bit ASN/number the VNI can only be a 16-bit number.</span>
+<span class="c1"># For 16-bit ASN/number the VNI can be a 32-bit number.</span>
+<span class="nt">evpn_rd_type</span><span class="p">:</span>
+  <span class="nt">admin_subfield</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; &quot;overlay_loopback&quot; | &quot;vtep_loopback&quot; | &quot;leaf_asn&quot; | &quot;spine_asn&quot; | &lt; IPv4 Address &gt; | &lt;0-65535&gt; | &lt;0-4294967295&gt; | default -&gt; &quot;overlay_loopback&quot; &gt;</span>
+
+<span class="c1"># Specify RT type | Optional</span>
+<span class="c1"># Route Target (RT) for L2 / L3 services is set to &lt;vni&gt;:&lt;vni&gt; per default</span>
+<span class="c1"># By configuring evpn_rt_type the Administrator subfield (first part of RT) can be set to other values.</span>
+<span class="c1">#</span>
+<span class="c1"># Note:</span>
+<span class="c1"># RT is a 48-bit value which is split into &lt;16-bit&gt;:&lt;32-bit&gt; or &lt;32-bit&gt;:&lt;16-bit&gt;.</span>
+<span class="c1"># For 32-bit ASN/number the VNI can only be a 16-bit number.</span>
+<span class="c1"># For 16-bit ASN/number the VNI can be a 32-bit number.</span>
+<span class="nt">evpn_rt_type</span><span class="p">:</span>
+  <span class="nt">admin_subfield</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; &quot;leaf_asn&quot; | &quot;spine_asn&quot; | &quot;vni&quot; | &lt;0-65535&gt; | &lt;0-4294967295&gt; | default -&gt; &quot;vni&quot; &gt;</span>
+
+
 <span class="c1"># Dictionary of tenants, to define network services: L3 VRFs and L2 VLNAS.</span>
 
 <span class="nt">tenants</span><span class="p">:</span>
