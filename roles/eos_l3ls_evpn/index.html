@@ -1411,9 +1411,14 @@ Default values, are stored in the role defaults <a href="defaults/main.yml">main
 <ul>
 <li>The fabric underlay and overlay topology variables, define the elements related to build the L3 Leaf and Spine fabric.</li>
 <li>The following underlay routing protocols are supported:<ul>
-<li>BGP (default)</li>
+<li>EBGP (default)</li>
 <li>OSPF.</li>
 <li>ISIS.</li>
+</ul>
+</li>
+<li>The following overlay routing protocols are supported:<ul>
+<li>EBGP (default)</li>
+<li>IBGP (only with OSPF or ISIS in underlay)</li>
 </ul>
 </li>
 <li>Only summary network addresses need to be defined. IP addresses are then assigned to each node, based on its unique device id.<ul>
@@ -1427,7 +1432,8 @@ Default values, are stored in the role defaults <a href="defaults/main.yml">main
 <span class="nt">fabric_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Fabric_Name &gt;</span>
 
 <span class="c1"># Underlay routing protocol | Required.</span>
-<span class="nt">underlay_routing_protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; BGP or OSPF or ISIS | Default -&gt; BGP &gt;</span>
+<span class="nt">underlay_routing_protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; EBGP or OSPF or ISIS | Default -&gt; EBGP &gt;</span>
+<span class="nt">overlay_routing_protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;EBGP or IBGP | default -&gt; EBGP &gt;</span>
 
 <span class="c1"># Underlay OSFP | Required when &lt; underlay_routing_protocol &gt; == OSPF</span>
 <span class="nt">underlay_ospf_process_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; process_id | Default -&gt; 100 &gt;</span>
@@ -1438,6 +1444,9 @@ Default values, are stored in the role defaults <a href="defaults/main.yml">main
 <span class="c1"># Underlay OSFP | Required when &lt; underlay_routing_protocol &gt; == ISIS</span>
 <span class="nt">isis_area_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; isis area | Default -&gt; &quot;49.0001&quot; &gt;</span>
 <span class="nt">isis_site_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; isis site ID | Default -&gt; &quot;0001&quot; &gt;</span>
+
+<span class="c1"># AS number to use to configure overlay when &lt; overlay_routing_protocol &gt; == IBGP</span>
+<span class="nt">bagp_as</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; AS number &gt;</span>
 
 <span class="c1"># Point to Point Links MTU | Required.</span>
 <span class="nt">p2p_uplinks_mtu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 0-9216 | default -&gt; 9000 &gt;</span>
@@ -1619,6 +1628,9 @@ The variables should be applied to all devices in the fabric.</p>
 
       <span class="c1"># Unique identifier | Required.</span>
       <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; integer &gt;</span>
+
+      <span class="c1"># Route Reflector when &lt; overlay_routing_protocol &gt; == IBGP</span>
+      <span class="nt">bgp_route_reflector</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; boolean &gt;</span>
 
       <span class="c1"># Node management IP address | Required.</span>
       <span class="nt">mgmt_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>

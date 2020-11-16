@@ -948,6 +948,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ip-extended-community-lists" class="md-nav__link">
+    IP Extended Community Lists
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#route-maps" class="md-nav__link">
     Route Maps
   </a>
@@ -1832,6 +1839,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ip-extended-community-lists" class="md-nav__link">
+    IP Extended Community Lists
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#route-maps" class="md-nav__link">
     Route Maps
   </a>
@@ -2049,6 +2063,7 @@
 <li><a href="#ipv6-routing">IPv6 Routing</a></li>
 <li><a href="#mlag-configuration">MLAG Configuration</a></li>
 <li><a href="#community-lists">Community Lists</a></li>
+<li><a href="#ip-extended-community-lists">IP Extended Community Lists</a></li>
 <li><a href="#route-maps">Route Maps</a></li>
 <li><a href="#peer-filters">Peer Filters</a></li>
 <li><a href="#router-bgp-configuration">Router BGP Configuration</a></li>
@@ -2826,6 +2841,15 @@
     <span class="nt">action</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">action</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">string</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
   <span class="nt">&lt; community_list_name_2 &gt;</span><span class="p">:</span>
     <span class="nt">action</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">action</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">string</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
+</code></pre></div>
+<h4 id="ip-extended-community-lists">IP Extended Community Lists<a class="headerlink" href="#ip-extended-community-lists" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">ip_extcommunity_lists</span><span class="p">:</span>
+  <span class="nt">&lt; community_list_name_1 &gt;</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; permit | deny &gt;</span>
+      <span class="nt">extcommunities</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">communities</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">string</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
+  <span class="nt">&lt; community_list_name_2 &gt;</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; permit | deny &gt;</span>
+      <span class="nt">extcommunities</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">communities</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">string</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
 </code></pre></div>
 <h4 id="route-maps">Route Maps<a class="headerlink" href="#route-maps" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nt">route_maps</span><span class="p">:</span>
