@@ -1956,6 +1956,12 @@ The variables should be applied to all devices in the fabric.</p>
         <span class="c1"># The VRF VNI range is limited.</span>
         <span class="nt">vrf_vni</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;1-1024&gt;</span>
 
+        <span class="c1"># IP Helper for DHCP relay</span>
+        <span class="nt">ip_helpers</span><span class="p">:</span>
+          <span class="nt">&lt; IPv4 dhcp server IP &gt;</span><span class="p">:</span>
+            <span class="nt">source_interface</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; interface-name &gt;</span>
+            <span class="nt">source_vrf</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; VRF to originate DHCP relay packets to DHCP server. If not set, uses current VRF &gt;</span>
+
         <span class="c1"># Enable VTEP Network diagnostics | Optional.</span>
         <span class="c1"># This will create a loopback with virtual source-nat enable to perform diagnostics from the switch.</span>
         <span class="nt">vtep_diagnostic</span><span class="p">:</span>
@@ -1996,6 +2002,12 @@ The variables should be applied to all devices in the fabric.</p>
             <span class="c1"># note, also requires an IP address to be configured on the SVI where it is applied.</span>
             <span class="c1"># Optional</span>
             <span class="nt">ip_virtual_router_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+
+            <span class="c1"># IP Helper for DHCP relay</span>
+            <span class="nt">ip_helpers</span><span class="p">:</span>
+              <span class="nt">&lt; IPv4 dhcp server IP &gt;</span><span class="p">:</span>
+                <span class="nt">source_interface</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; interface-name &gt;</span>
+                <span class="nt">source_vrf</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; VRF to originate DHCP relay packets to DHCP server. If not set, uses current VRF &gt;</span>
 
             <span class="c1"># Define node specific configuration, such as unique IP addresses.</span>
             <span class="nt">nodes</span><span class="p">:</span>
