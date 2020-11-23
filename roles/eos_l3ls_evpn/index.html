@@ -1298,6 +1298,7 @@ Default values, are stored in the role defaults <a href="defaults/main.yml">main
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4 address &gt;</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4 address &gt;</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4 address &gt;</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; CV as a Service hostname &gt;</span>
 <span class="nt">cvp_ingestauth_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; CloudVision Ingest Authentication key &gt;</span>
 <span class="nt">terminattr_ingestgrpcurl_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; port_number | default -&gt; 9910 &gt;</span>
 <span class="nt">terminattr_smashexcludes</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">smash</span><span class="nv"> </span><span class="s">excludes</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default</span><span class="nv"> </span><span class="s">-&gt;</span><span class="nv"> </span><span class="s">ale,flexCounter,hardware,kni,pulse,strata</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
@@ -1342,6 +1343,9 @@ Default values, are stored in the role defaults <a href="defaults/main.yml">main
 <span class="nt">mac_address_table</span><span class="p">:</span>
   <span class="nt">aging_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; time_in_seconds &gt;</span>
 </code></pre></div>
+<blockquote>
+<p>In <code>cvp_instance_ips</code> you can either provide a list of IPs to target on-premise Cloudvision cluster or either use DNS name for your Cloudvision as a Service instance. If you have both on-prem and CVaaS defined, only on-prem is going to be configured.</p>
+</blockquote>
 <p><strong>Example:</strong></p>
 <p>note: Default values are commented</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Timezone</span>
