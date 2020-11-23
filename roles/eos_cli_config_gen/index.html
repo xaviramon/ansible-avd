@@ -2162,10 +2162,12 @@
 </code></pre></div>
 <h4 id="ip-igmp-snooping">IP IGMP Snooping<a class="headerlink" href="#ip-igmp-snooping" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nt">ip_igmp_snooping</span><span class="p">:</span>
+  <span class="nt">globally_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false (default is true) &gt;</span>
   <span class="nt">vlans</span><span class="p">:</span>
     <span class="nt">&lt; vlan_id &gt;</span><span class="p">:</span>
       <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
 </code></pre></div>
+<p><code>globally_enabled</code> allows to activate or deactivate IGMP snooping for all vlans where <code>vlans</code> allows user to activate / deactivate IGMP snooping per vlan.</p>
 <h4 id="event-monitor">Event Monitor<a class="headerlink" href="#event-monitor" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nt">event_monitor</span><span class="p">:</span>
   <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>

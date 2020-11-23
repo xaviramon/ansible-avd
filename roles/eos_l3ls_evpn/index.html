@@ -1507,6 +1507,10 @@ Default values, are stored in the role defaults <a href="defaults/main.yml">main
 <span class="c1"># Enable vlan aware bundles for EVPN MAC-VRF | Required.</span>
 <span class="nt">vxlan_vlan_aware_bundles</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; boolean | default -&gt; false &gt;</span>
 
+<span class="c1"># Disable IGMP snooping at fabric level.</span>
+<span class="c1"># If set, it overrides per vlan settings</span>
+<span class="nt">default_igmp_snooping</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; boolean | default -&gt; true &gt;</span>
+
 <span class="c1"># BFD Multihop tunning | Required.</span>
 <span class="nt">bfd_multihop</span><span class="p">:</span>
   <span class="nt">interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; | default -&gt; 300 &gt;</span>
@@ -1685,6 +1689,9 @@ The variables should be applied to all devices in the fabric.</p>
     <span class="c1"># Virtual router mac address for anycast gateway | Required.</span>
     <span class="nt">virtual_router_mac_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; mac address &gt;</span>
 
+    <span class="c1"># Activate or deactivate IGMP snooping for all l3leaf devices | Optional default is true</span>
+    <span class="nt">igmp_snooping_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+
   <span class="c1"># The node groups are group of one or two nodes where specific variables can be defined related to the topology</span>
   <span class="c1"># and allowed L3 and L2 network services.</span>
   <span class="c1"># All variables defined under `defaults` dictionary can be defined under each node group to override it.</span>
@@ -1701,6 +1708,9 @@ The variables should be applied to all devices in the fabric.</p>
       <span class="nt">filter</span><span class="p">:</span>
         <span class="nt">tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tenant_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tenant_2 &gt; | default all</span> <span class="p p-Indicator">]</span>
         <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tag_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tag_2 &gt; | default -&gt; all</span> <span class="p p-Indicator">]</span><span class="err">]</span>
+
+      <span class="c1"># Activate or deactivate IGMP snooping for node groups devices</span>
+      <span class="nt">igmp_snooping_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
 
       <span class="c1"># Define one or two nodes - same name as inventory_hostname | Required</span>
       <span class="c1"># When two nodes are defined, this will create an MLAG pair.</span>
@@ -1821,6 +1831,9 @@ The variables should be applied to all devices in the fabric.</p>
     <span class="c1"># Spanning tree priority | Required.</span>
     <span class="nt">spanning_tree_priority</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; spanning-tree priority &gt;</span>
 
+    <span class="c1"># Activate or deactivate IGMP snooping for all l2leaf devices | Optional default is true</span>
+    <span class="nt">igmp_snooping_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+
   <span class="c1"># The node groups are group of one or two nodes where specific variables can be defined related to the topology</span>
   <span class="c1"># and allowed L3 and L2 network services.</span>
   <span class="c1"># All variables defined under `defaults` dictionary can be defined under each node group to override it.</span>
@@ -1834,6 +1847,9 @@ The variables should be applied to all devices in the fabric.</p>
       <span class="nt">filter</span><span class="p">:</span>
         <span class="nt">tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tenant_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tenant_2 &gt; | default all</span> <span class="p p-Indicator">]</span>
         <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tag_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tag_2 &gt; | default -&gt; all</span> <span class="p p-Indicator">]</span><span class="err">]</span>
+
+      <span class="c1"># Activate or deactivate IGMP snooping for node groups devices</span>
+      <span class="nt">igmp_snooping_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
 
       <span class="c1"># Define one or two nodes - same name as inventory_hostname.</span>
       <span class="c1"># When two nodes are defined, this will create an MLAG pair.</span>
@@ -2004,6 +2020,9 @@ The variables should be applied to all devices in the fabric.</p>
 
             <span class="c1"># Enable or disable interface</span>
             <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+
+            <span class="c1"># Enable IGMP Snooping</span>
+            <span class="nt">igmp_snooping_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false | default true (eos) &gt;</span>
 
             <span class="c1"># ip address virtual to configure VXLAN Anycast IP address</span>
             <span class="c1"># Conserves IP addresses in VXLAN deployments as it doesn&#39;t require unique IP addresses on each node.</span>
