@@ -703,6 +703,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#speed-group-settings" class="md-nav__link">
+    Speed-Group Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#spanning-tree" class="md-nav__link">
     Spanning Tree
   </a>
@@ -1594,6 +1601,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#speed-group-settings" class="md-nav__link">
+    Speed-Group Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#spanning-tree" class="md-nav__link">
     Spanning Tree
   </a>
@@ -2028,6 +2042,7 @@
 <li><a href="#sflow">Sflow</a></li>
 <li><a href="#redundancy">Redundancy</a></li>
 <li><a href="#snmp-settings">SNMP Settings</a></li>
+<li><a href="#speed-group-settings">Hardware Speed-Group Settings</a></li>
 <li><a href="#spanning-tree">Spanning Tree</a></li>
 <li><a href="#platform">Platform</a></li>
 <li><a href="#tacacs-servers">Tacacs+ Servers</a></li>
@@ -2352,6 +2367,15 @@
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; vrf_name &gt;</span>
       <span class="nt">enable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
 </code></pre></div>
+<h4 id="speed-group-settings">Speed-Group Settings<a class="headerlink" href="#speed-group-settings" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">hardware</span><span class="p">:</span>
+  <span class="nt">speed_groups</span><span class="p">:</span>
+    <span class="nt">1</span><span class="p">:</span>
+      <span class="nt">serdes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;10g | 25g&gt;</span>
+    <span class="nt">2</span><span class="p">:</span>
+      <span class="nt">serdes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;10g | 25g&gt;</span>
+    <span class="l l-Scalar l-Scalar-Plain">...</span>
+</code></pre></div>
 <h4 id="spanning-tree">Spanning Tree<a class="headerlink" href="#spanning-tree" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nt">spanning_tree</span><span class="p">:</span>
   <span class="nt">edge_port</span><span class="p">:</span>
@@ -2364,6 +2388,10 @@
 <div class="highlight"><pre><span></span><code><span class="nt">platform</span><span class="p">:</span>
   <span class="nt">trident</span><span class="p">:</span>
     <span class="nt">forwarding_table_partition</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; partition &gt;</span>
+  <span class="nt">sand</span><span class="p">:</span>
+    <span class="nt">lag</span><span class="p">:</span>
+      <span class="nt">hardware_only</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; mode | default -&gt; 1024x16 &gt;</span>
 </code></pre></div>
 <h4 id="tacacs-servers">Tacacs+ Servers<a class="headerlink" href="#tacacs-servers" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nt">tacacs_servers</span><span class="p">:</span>
@@ -2584,6 +2612,19 @@
     <span class="nt">spanning_tree_bpduguard</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
     <span class="nt">spanning_tree_portfast</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; edge | network &gt;</span>
     <span class="nt">vmtracer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+    <span class="nt">storm_control</span><span class="p">:</span>
+      <span class="nt">all</span><span class="p">:</span>
+        <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Configure maximum storm-control level &gt;</span>
+        <span class="nt">unit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; percent | pps &gt;</span>
+      <span class="nt">broadcast</span><span class="p">:</span>
+        <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Configure maximum storm-control level &gt;</span>
+        <span class="nt">unit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; percent | pps &gt;</span>
+      <span class="nt">multicast</span><span class="p">:</span>
+        <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Configure maximum storm-control level &gt;</span>
+        <span class="nt">unit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; percent | pps &gt;</span>
+      <span class="s">&#39;unknown-unicast&#39;</span><span class="p p-Indicator">:</span>
+        <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Configure maximum storm-control level &gt;</span>
+        <span class="nt">unit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; percent | pps &gt;</span>
 </code></pre></div>
 <h4 id="loopback-interfaces">Loopback Interfaces<a class="headerlink" href="#loopback-interfaces" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nt">loopback_interfaces</span><span class="p">:</span>
@@ -2620,6 +2661,7 @@
     <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
     <span class="nt">shutdown</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
     <span class="nt">vrf</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; vrf_name &gt;</span>
+    <span class="nt">arp_aging_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; arp_timeout &gt;</span>
     <span class="nt">ip_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
     <span class="nt">ip_address_secondary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
     <span class="nt">ip_router_virtual_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address &gt;</span>
@@ -2780,6 +2822,7 @@
     <span class="nt">distance</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 1-255 &gt;</span>
     <span class="nt">tag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 0-4294967295 &gt;</span>
     <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
+    <span class="nt">metric</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 0-4294967295 &gt;</span>
   <span class="p p-Indicator">-</span> <span class="nt">destination_address_prefix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_network/Mask &gt;</span>
     <span class="nt">gateway</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address &gt;</span>
 </code></pre></div>
@@ -2792,6 +2835,7 @@
     <span class="nt">distance</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 1-255 &gt;</span>
     <span class="nt">tag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 0-4294967295 &gt;</span>
     <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
+    <span class="nt">metric</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 0-4294967295 &gt;</span>
   <span class="p p-Indicator">-</span> <span class="nt">destination_address_prefix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv6_network/Mask &gt;</span>
     <span class="nt">gateway</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv6_address &gt;</span>
 </code></pre></div>
@@ -2939,6 +2983,16 @@
       <span class="nt">password</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">encrypted_password</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
     <span class="nt">&lt; IPv6_address_1 &gt;</span><span class="p">:</span>
       <span class="nt">remote_as</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; bgp_as &gt;</span>
+  <span class="nt">aggregate_addresses</span><span class="p">:</span>
+    <span class="nt">&lt; aggregate_address_1/mask &gt;</span><span class="p">:</span>
+      <span class="nt">advertise_only</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+    <span class="nt">&lt; aggregate_address_2/mask &gt;</span><span class="p">:</span>
+    <span class="nt">&lt; aggregate_address_3/mask &gt;</span><span class="p">:</span>
+      <span class="nt">as_set</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+      <span class="nt">summary_only</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+      <span class="nt">attribute_map</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; route_map_name &gt;</span>
+      <span class="nt">match_map</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; route_map_name &gt;</span>
+      <span class="nt">advertise_only</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
   <span class="nt">redistribute_routes</span><span class="p">:</span>
     <span class="nt">&lt; route_type &gt;</span><span class="p">:</span>
       <span class="nt">route_map</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; route_map_name &gt;</span>
