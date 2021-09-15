@@ -26,6 +26,9 @@
 | Commands - Default | {{ command_default.commands }} | {{ command_default.type }} | {% if command_default.group is arista.avd.defined %}{{ command_default.group }} {% else %} - {% endif %} | {% if command_default.logging is arista.avd.defined(true) %}{{ true }} {% else %} false {% endif %} |
 {%         endfor %}
 {%     endif %}
+{%     if aaa_accounting.system.default.type is arista.avd.defined and aaa_accounting.system.default.group is arista.avd.defined  %}
+| System - Default | - | {{ aaa_accounting.system.default.type }} | {{ aaa_accounting.system.default.group }} | - |
+{%     endif %}
 
 ### AAA Accounting Device Configuration
 
