@@ -298,6 +298,19 @@ keys:
                   table: Uplink management
                 type: bool
                 default: false
+          uplink_sflow:
+            documentation_options:
+              filename: Fabric Topology
+              table: Uplink management
+            description: Enable sFlow on all uplinks.
+            type: dict
+            keys:
+              enable:
+                documentation_options:
+                  filename: Fabric Topology
+                  table: Uplink management
+                type: bool
+                default: false
           uplink_macsec:
             documentation_options:
               filename: Fabric Topology
