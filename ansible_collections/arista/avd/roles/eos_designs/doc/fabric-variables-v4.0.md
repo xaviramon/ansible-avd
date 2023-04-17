@@ -153,4 +153,8 @@ p2p_uplinks_qos_profile: < qos_profile_name >
 # Enable PTP on all infrastructure links | Optional
 uplink_ptp:
   enable: < boolean | default -> false >
+
+# Enable PTP on all uplinks | Optional
+uplink_sflow:
+  enable: < boolean | default -> false >
 ```

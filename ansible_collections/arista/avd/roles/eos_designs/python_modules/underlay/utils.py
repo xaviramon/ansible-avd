@@ -198,6 +198,7 @@ class UtilsMixin:
                         "bfd": get(uplink, "bfd"),
                         "ptp": get(uplink, "ptp"),
                         "mac_security": get(uplink, "mac_security"),
+                        "sflow": get(uplink, "sflow"),
                         "short_esi": get(uplink, "peer_short_esi"),
                         "underlay_multicast": get(uplink, "underlay_multicast"),
                         "ipv6_enable": get(uplink, "ipv6_enable"),

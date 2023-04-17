@@ -206,6 +206,10 @@ defaults <- node_group <- node_group.node <- node
     uplink_ptp:
       enable: < boolean >
 
+    # Enable sFlow on uplink links | Optional
+    uplink_sflow:
+      enable: < boolean >
+
     # Enable MacSec on all uplinks | Optional
     uplink_macsec:
       profile: "< MacSec profile name >"

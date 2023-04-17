@@ -324,6 +324,11 @@ class UtilsMixin:
                 "profile": p2p_link["macsec_profile"],
             }
 
+        if p2p_link.get("sflow"):
+            interface_cfg["sflow"] = {
+                "enable": True,
+            }
+
         if self._mpls_lsr and p2p_link.get("mpls_ip", True) is True:
             interface_cfg["mpls"] = {"ip": True}
             if p2p_link.get("include_in_underlay_protocol") is True and self._underlay_ldp and p2p_link.get("mpls_ldp", True) is True:

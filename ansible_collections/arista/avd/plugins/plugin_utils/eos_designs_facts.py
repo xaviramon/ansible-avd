@@ -517,6 +517,10 @@ class EosDesignsFacts(AvdFacts):
         return get(self._switch_data_combined, "uplink_macsec")
 
     @cached_property
+    def uplink_sflow(self):
+        return get(self._switch_data_combined, "uplink_sflow")
+
+    @cached_property
     def uplink_structured_config(self):
         return get(self._switch_data_combined, "uplink_structured_config")
 
@@ -1588,6 +1592,9 @@ class EosDesignsFacts(AvdFacts):
                         uplink["ptp"] = {"enable": True}
                 if self.uplink_macsec is not None:
                     uplink["mac_security"] = self.uplink_macsec
+                if self.uplink_sflow is not None:
+                    if self.uplink_sflow["enable"] is True:
+                        uplink["sflow"] = {"enable": True}
                 if self.underlay_multicast is True and uplink_switch_facts.underlay_multicast is True:
                     uplink["underlay_multicast"] = True
                 if get(self._hostvars, "underlay_rfc5549") is True:

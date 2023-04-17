@@ -38,6 +38,7 @@ class EthernetInterfacesMixin(UtilsMixin):
                         "mtu": self._p2p_uplinks_mtu,
                         "service_profile": get(self._hostvars, "p2p_uplinks_qos_profile"),
                         "mac_security": link.get("mac_security"),
+                        "sflow": link.get("sflow"),
                         "type": "routed",
                         "ipv6_enable": link.get("ipv6_enable"),
                         "link_tracking_groups": link.get("link_tracking_groups"),
