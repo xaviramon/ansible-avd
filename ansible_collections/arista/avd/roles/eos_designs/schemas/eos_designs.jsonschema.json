@@ -872,22 +872,6 @@
               },
               "title": "Uplink PTP"
             },
-            "uplink_sflow": {
-              "description": "Enable sFlow on all uplinks.",
-              "type": "object",
-              "properties": {
-                "enable": {
-                  "type": "boolean",
-                  "default": false,
-                  "title": "Enable"
-                }
-              },
-              "additionalProperties": false,
-              "patternProperties": {
-                "^_.+$": {}
-              },
-              "title": "Uplink Sflow"
-            },
             "uplink_macsec": {
               "description": "Enable MacSec on all uplinks.",
               "type": "object",
@@ -1853,22 +1837,6 @@
                 },
                 "title": "Uplink PTP"
               },
-              "uplink_sflow": {
-                "description": "Enable sFlow on all uplinks.",
-                "type": "object",
-                "properties": {
-                  "enable": {
-                    "type": "boolean",
-                    "default": false,
-                    "title": "Enable"
-                  }
-                },
-                "additionalProperties": false,
-                "patternProperties": {
-                  "^_.+$": {}
-                },
-                "title": "Uplink Sflow"
-              },
               "uplink_macsec": {
                 "description": "Enable MacSec on all uplinks.",
                 "type": "object",
@@ -2831,22 +2799,6 @@
                         "^_.+$": {}
                       },
                       "title": "Uplink PTP"
-                    },
-                    "uplink_sflow": {
-                      "description": "Enable sFlow on all uplinks.",
-                      "type": "object",
-                      "properties": {
-                        "enable": {
-                          "type": "boolean",
-                          "default": false,
-                          "title": "Enable"
-                        }
-                      },
-                      "additionalProperties": false,
-                      "patternProperties": {
-                        "^_.+$": {}
-                      },
-                      "title": "Uplink Sflow"
                     },
                     "uplink_macsec": {
                       "description": "Enable MacSec on all uplinks.",
@@ -3832,22 +3784,6 @@
                   "^_.+$": {}
                 },
                 "title": "Uplink PTP"
-              },
-              "uplink_sflow": {
-                "description": "Enable sFlow on all uplinks.",
-                "type": "object",
-                "properties": {
-                  "enable": {
-                    "type": "boolean",
-                    "default": false,
-                    "title": "Enable"
-                  }
-                },
-                "additionalProperties": false,
-                "patternProperties": {
-                  "^_.+$": {}
-                },
-                "title": "Uplink Sflow"
               },
               "uplink_macsec": {
                 "description": "Enable MacSec on all uplinks.",
