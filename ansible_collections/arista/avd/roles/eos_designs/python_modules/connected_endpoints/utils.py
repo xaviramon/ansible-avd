@@ -297,3 +297,18 @@ class UtilsMixin:
         ptp_config.pop("profile", None)
 
         return ptp_config
+
+    @cached_property
+    def fabric_sflow(self):
+        return get(self._hostvars, "switch.fabric_sflow", default={})
+
+    def _get_adapter_sflow(self, adapter: dict) -> dict | None:
+        """
+        Return sflow configuration for one adapter
+        Adapter definition takes precedence over fabric configuration
+        """
+        if get(adapter, "sflow") is not None:
+            return {"enable": get(adapter, "sflow")}
+        else:
+            if self.fabric_sflow["endpoints"] is not None:
+                return {"enable": self.fabric_sflow["endpoints"]}
