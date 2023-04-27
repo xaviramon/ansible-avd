@@ -113,6 +113,10 @@ class UtilsMixin:
         return get_item(ptp_profiles, "profile", ptp_profile_name, default={})
 
     @cached_property
+    def fabric_sflow(self):
+        return get(self._hostvars, "switch.fabric_sflow", default={})
+
+    @cached_property
     def _filtered_p2p_links(self) -> list:
         """
         Returns a filtered list of p2p_links, which only contains links with our hostname.
@@ -324,10 +328,8 @@ class UtilsMixin:
                 "profile": p2p_link["macsec_profile"],
             }
 
-        if p2p_link.get("sflow"):
-            interface_cfg["sflow"] = {
-                "enable": True,
-            }
+        if self._get_adapter_sflow(p2p_link) is not None:
+            interface_cfg["sflow"] = self._get_adapter_sflow(p2p_link)
 
         if self._mpls_lsr and p2p_link.get("mpls_ip", True) is True:
             interface_cfg["mpls"] = {"ip": True}
@@ -387,3 +389,14 @@ class UtilsMixin:
                 "mode": get(p2p_link, "port_channel.mode", default="active"),
             },
         }
+
+    def _get_adapter_sflow(self, adapter: dict) -> dict | None:
+        """
+        Return sflow configuration for one adapter
+        Adapter definition takes precedence over fabric configuration
+        """
+        if get(adapter, "sflow") is not None:
+            return {"enable": get(adapter, "sflow")}
+        else:
+            if self.fabric_sflow["l3_edge"] is not None:
+                return {"enable": self.fabric_sflow["l3_edge"]}
